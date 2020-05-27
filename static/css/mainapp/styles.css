@@ -1,0 +1,742 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #edeef0;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/static/img/fon12.jpg');
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    height: 50px;
+}
+
+.index_site{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 50px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.index_site a{
+    text-decoration: none;
+    color: white;
+}
+
+.index_gursd{
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.os{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 340px;
+}
+
+.topuser{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.photo_name_user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    padding-right: 30px;
+}
+
+.photo_name_user a{
+    text-decoration: none;
+    color: white;
+}
+
+.photo_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.photo_user img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.name_user{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.content_top_ganr{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+}
+
+.container_games{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 750px;
+    background-color: white;
+    margin: 20px 20px 0 30px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    border-radius: 5px 0 0 5px;
+}
+
+.new_games{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 690px;
+    height: 30px;
+    margin: 20px 0 10px 0;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.new_games a{
+    text-decoration: none;
+    color: black;
+}
+
+.add_new_game:hover {
+    color: cornflowerblue;
+}
+
+.game_complaint:hover {
+    color: cornflowerblue;
+}
+
+.new_games_android{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 690px;
+    height: 30px;
+    margin: 20px 0 10px 0;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.android_svg {
+    margin-right: 5px;
+}
+
+.new_games_ios{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 690px;
+    height: 30px;
+    margin: 20px 0 10px 0;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.ios_svg {
+    margin-right: 5px;
+}
+
+.new_games_windows{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 690px;
+    height: 30px;
+    margin: 20px 0 10px 0;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.windows_svg {
+    margin-right: 5px;
+}
+
+.new_games_xbox{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 690px;
+    height: 30px;
+    margin: 20px 0 10px 0;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.xbox_svg {
+    margin-right: 5px;
+}
+
+.new_games_psp{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 690px;
+    height: 30px;
+    margin: 20px 0 10px 0;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.psp_svg {
+    margin-right: 5px;
+}
+
+.new_game_border{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93%;
+    height: 1px;
+    margin-bottom: 5px;
+    background-color: black;
+}
+
+.div_game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.game_photo_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 235px;
+    height: 350px;
+}
+
+.game_photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 280px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 0 0 #d7d8db, 2px 2px 5px 2px #e3e4e8;
+}
+
+.game_photo img{
+    width: 215px;
+    height: 275px;
+    border-radius: 5px;
+}
+
+.game_name_like_comments{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+}
+
+.game_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.like_comment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 55px;
+    height: 30px;
+}
+
+.ganre_top{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.ganre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.svg_span_ganr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 115px;
+    height: 50px;
+    margin: 10px 0 0 0;
+}
+
+.span_ganre{
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.border_ganre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.all_ganre{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 250px;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.all_ganre a{
+    text-decoration: none;
+    color: black;
+}
+
+.ganre1{
+    padding-left: 9px;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.ganre1:hover{
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.svg_span_top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 77px;
+    height: 50px;
+    margin: 10px 0 0 0;
+}
+
+.span_top{
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.border_top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.all_top_games{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 250px;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.all_top_games a{
+    text-decoration: none;
+    color: black;
+}
+
+.top1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    width: 250px;
+    height: 70px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.top1:hover{
+    border: 1px solid black;
+}
+
+.top_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.top_img img{
+    width: 40px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.top1:hover{
+    margin-left: -2px;
+}
+
+/*Game info*/
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.fullgame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.game_info_img_description{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    background-color: white;
+    width: 1000px;
+    margin: 20px;
+}
+
+.game_photo_info{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-direction: column;
+    width: 350px;
+    background-color: white;
+}
+
+.game_name_description{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 650px;
+    margin: 20px 20px 0 0;
+    background-color: white;
+}
+
+.game-name{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.description span{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.description p{
+    padding: 5px;
+}
+
+.description{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    text-align: justify;
+
+}
+
+.requirements{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.rating{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.game-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    box-shadow: 0 2px 0 0 #d7d8db, 2px 2px 5px 2px #e3e4e8;
+}
+
+.game-img img{
+    width: 300px;
+    height: 400px;
+}
+
+.game-info{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 350px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin: 0 20px 20px;
+    padding: 5px;
+}
+
+.game-genre a{
+    text-decoration: none;
+    color: black;
+}
+
+.all_comments{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: column;
+    width: 1000px;
+    height: 500px;
+    background-color: white;
+    margin: 10px 0 10px 0;
+}
+
+.comments{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 1000px;
+    margin: 30px 30px 20px 40px;
+}
+
+.author_comments{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author_photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    margin-right: 20px;
+}
+
+.author_photo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.author_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.author_text_comment{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 700px;
+    border: 1px solid black;
+    margin-left: 70px;
+    border-radius: 5px;
+}
+
+.text_comment{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin: 10px 10px 10px 10px;
+}
+
+.date_time{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 200px;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 20px;
+}
+
+.time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 20px;
+}
+
+.border_middle_comments{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin-top: 20px
+}
+
+.enter_comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+/*.download_comment_photo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    height: 50px;
+}*/
+
+.input_comment_label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.form_comment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 760px;
+    height: 40px;
+
+}
+
+.text_field_comment{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 665px;
+    height: 35px;
+    border: none;
+    outline: none;
+}

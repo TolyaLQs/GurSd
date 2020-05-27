@@ -1,0 +1,79 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+<title>GurSd PSP</title>
+{% endblock %}
+
+{% block content %}
+<div class="content_top_ganr">
+    <div class="container_games">
+        <div class="new_games_psp">
+            <span class="ios_svg">PlayStation</span>
+            <svg id="psp" viewBox="0 0 15 9.31" width="30px" height="30px" fill="dark">
+                <path d="M.031.03L0 1.999h13V4.03H0v5h2v-3h13V-.002L.031.03z">
+                </path>
+            </svg>
+        </div>
+        <div class="new_game_border"></div>
+
+        <div class="div_game">
+            {% for object in games %}
+            <div class="game_photo_name">
+                <a class="{% if request.resolver_match.url_name == 'game' %}active{% endif %}"
+                   href="{% url 'game' object.name %}">
+                    <div class="game_photo">
+                        <img src="/media/{{ object.photo }}">
+                    </div>
+                    <div class="game_name">{{ object.name }}</div>
+                </a>
+            </div>
+                {% empty %}
+                <div>Игры с данной ОС не добавлены</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="ganre_top">
+        <div class="ganre">
+            <div class="svg_span_ganr">
+                <svg viewBox="0 0 27.96 17.3" width="30px" height="30px" fill="black">
+                    <path d="M9.01 7.25V5.54a.38.38 0 0 0-.37-.37H6.92V3.46a.38.38 0 0 0-.37-.37H4.83a.35.35 0 0 0-.34.37v1.71H2.75a.38.38 0 0 0-.37.37v1.71a.38.38 0 0 0 .37.37h1.77v1.71a.35.35 0 0 0 .34.37h1.66a.38.38 0 0 0 .37-.37V7.62h1.72a.38.38 0 0 0 .37-.37zm.91 1.57a1.87 1.87 0 0 0 0 3.74 1.87 1.87 0 0 0 0-3.74zm3.69-4.57h.74a.17.17 0 0 0 .2-.17v-.83h4.63l.69-.54.37-1.68a.51.51 0 0 1 .31-.29s0-.74 1.72-.71 1.63.71 1.63.71a.85.85 0 0 1 .37.34s.29 1.11.34 1.57a4.34 4.34 0 0 1 2 2.74c.4 2.71 1.34 6.42 1.34 9a2.88 2.88 0 0 1-5.37 1.46l-2.17-3.6a2.84 2.84 0 0 1-5.2-1.57h-2.43a2.86 2.86 0 0 1-2.86 2.83 2.76 2.76 0 0 1-2.34-1.26l-2.17 3.62a2.91 2.91 0 0 1-2.52 1.43A2.88 2.88 0 0 1 0 14.42c0-2.14 1-6.71 1.37-9a4.34 4.34 0 0 1 2-2.74 11.83 11.83 0 0 1 .34-1.57.71.71 0 0 1 .34-.34S3.94.11 5.68.06 7.4.77 7.4.77a.6.6 0 0 1 .34.29l.34 1.68.69.54h4.66v.83a.18.18 0 0 0 .2.17zm9.52-1.17h-1.72a.35.35 0 0 0-.34.37v1.71h-1.74a.38.38 0 0 0-.37.37v1.72a.38.38 0 0 0 .37.37h1.74v1.71a.35.35 0 0 0 .34.37h1.72a.38.38 0 0 0 .37-.37V7.62h1.72a.38.38 0 0 0 .37-.37V5.54a.38.38 0 0 0-.37-.37h-1.7V3.46a.38.38 0 0 0-.37-.37zm-5.09 5.74a1.88 1.88 0 1 0 1.89 1.88 1.9 1.9 0 0 0-1.89-1.88z"></path>
+                </svg>
+                <span class="span_ganre">Жанры</span>
+            </div>
+            <div class="border_ganre"></div>
+            <div class="all_ganre">
+                {% for objects in genre %}
+                <a class="{% if request.resolver_match.url_name == 'ganre' %}active{% endif %}" href="{% url 'ganre' objects.name %}">
+                    <div class="ganre1">{{ objects.name }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="top">
+            <div class="svg_span_top">
+                <svg viewBox="0 0 14.27 14.24" width="30px" height="30px" fill="black">
+                    <path d="M2.88 5.88c0 1.94 2.14 3.91 4.26 5.85 2.12-1.94 4.23-3.91 4.23-5.85a2 2 0 0 0-2.12-1.94A2.19 2.19 0 0 0 7.13 5.4a2.22 2.22 0 0 0-2.12-1.46 2 2 0 0 0-2.14 1.94zM7.14 0A7.12 7.12 0 1 1-.01 7.13 7.12 7.12 0 0 1 7.14 0z"></path>
+                </svg>
+                <span class="span_top">Top</span>
+            </div>
+            <div class="border_top"></div>
+            <div class="all_top_games">
+                {% for hot in top|slice:":10" %}
+                <a class="{% if request.resolver_match.url_name == 'game' %}active{% endif %}"
+                   href="{% url 'game' hot.name %}">
+                    <div class="top1">
+                        <div class="top_title">{{ hot.name }}</div>
+                        <div class="top_img">
+                            <img src="/media/{{ hot.photo }}">
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

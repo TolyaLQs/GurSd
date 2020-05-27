@@ -1,0 +1,50 @@
+{% extends 'authapp/base.html' %}
+{% block title %}
+<title>GSProfile refactor</title>
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/css/user/user_profile.css">
+<link rel="stylesheet" href="/static/css/user/user.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/mainapp/auth_styles.css">
+{% endblock %}
+{% block content %}
+<div class="edit">
+    <div class="edit_login-form">
+        <form enctype="multipart/form-data" method="post">
+            <div class="edit_info_profile">
+                <span>Редактирование профиля</span>
+            </div>
+            <div class="edit_info_profile_border"></div>
+            <div class="user_form_edit">
+                <div class="f_name_input">
+                    <span>Имя</span>
+                    <input class="input_f_name" type="text" name="first_name" id="id_first_name"
+                           placeholder="Введите имя"
+                           value="{{user.first_name}}">
+                </div>
+                <div class="l_name_input">
+                    <span>Фамилия</span>
+                    <input class="input_l_name" type="text" name="last_name" id="id_last_name"
+                           placeholder="Введите фамилию"
+                           value="{{user.last_name}}">
+                </div>
+                <div class="email_input">
+                    <span>Email</span>
+                    <input class="input_email" type="text" name="email" id="id_email" placeholder="Введите email"
+                           value="{{user.email}}">
+                </div>
+            </div>
+            <div class="btn_edit">
+                <a class="a" href="{% url 'user:profile' user.id %}">
+                    <div class="back_btn2 edit_btn_success2">Назад
+                    </div>
+                </a>
+                <button type="submit" class="save_btn1 edit_btn_success1">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

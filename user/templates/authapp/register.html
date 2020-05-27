@@ -1,0 +1,111 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+<title>GurSd</title>
+{% endblock %}
+
+{% block content %}
+<div class="container-register">
+    <div class="breadcrumbs">
+        <div class="all-steps">
+            <div class="arrow-step1"></div>
+            <div class="step_1 trek1"><span>Шаг 1</span>
+            </div>
+            <div class="step_2 trek2 activestep trek"><span>Шаг 2</span>
+                <!--<div class="arrow-step2"></div>-->
+            </div>
+            <div class="step_3 trek3 trek"><span>Шаг 3</span>
+
+            </div>
+            <div class="arrow-step3 trek"></div>
+        </div>
+    </div>
+    <div class="user-form">
+        <div class="register">
+            <div class="reg-form">
+                <form enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <div class="form-step_1">
+                        <input type="text" name="first_name" value="{{ fname }}" placeholder="Введите имя"
+                               maxlength="30"
+                               class="form-control"
+                               id="id_first_name">
+                        <input type="text" name="last_name" value="{{ lname }}" placeholder="Введите фамилию"
+                               maxlength="150"
+                               class="form-control"
+                               id="id_last_name">
+                        <div class="container-btn-back-step2">
+                            <a class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}"
+                               href="{% url 'auth:login' %}">
+                                <svg width="20px" height="20px" viewBox="0 0 459 459">
+                                    <title>Назад</title>
+                                    <path d="M178.5,140.25v-102L0,216.75l178.5,178.5V290.7c127.5,0,216.75,40.8,280.5,130.05C433.5,293.25,357,165.75,178.5,140.25z"/>
+                                </svg>
+                            </a>
+                            <div class="btn btn-success btn-step-1">Далее</div>
+                        </div>
+                    </div>
+                    <div class="form-step_2">
+                        <input type="email" name="email" placeholder="Введите email" maxlength="254"
+                               class="form-control"
+                               id="id_email">
+                        <input type="password" name="password1" placeholder="Введите пароль" class="form-control"
+                               required=""
+                               id="id_password1">
+                        <input type="password" name="password2" placeholder="Повторите пароль"
+                               class="form-control"
+                               required=""
+                               id="id_password2">
+                        <div class="container-btn-back-step2">
+                            <div class="btn-back-step1">
+                                <svg width="20px" height="20px" viewBox="0 0 459 459">
+                                    <title>Назад</title>
+                                    <path d="M178.5,140.25v-102L0,216.75l178.5,178.5V290.7c127.5,0,216.75,40.8,280.5,130.05C433.5,293.25,357,165.75,178.5,140.25z"/>
+                                </svg>
+                            </div>
+                            <div class="btn btn-success btn-step-2">Далее</div>
+                        </div>
+                    </div>
+                    <div class="form-step_3">
+                        <div class="img-ava">
+                            <img class="users-avatar" src="" alt="">
+                            <div class="download-photo">
+                                <label class="input-avatar_label" for="id_avatar">
+                                    <svg fill="black" width="20px" height="20px" viewBox="0 0 612.675 612.675">
+                                        <path d="M581.209,223.007L269.839,530.92c-51.592,51.024-135.247,51.024-186.839,0c-51.592-51.023-51.592-133.737,0-184.761
+                                            L363.248,69.04c34.402-34.009,90.15-34.009,124.553,0c34.402,34.008,34.402,89.166,0,123.174l-280.249,277.12
+                                            c-17.19,17.016-45.075,17.016-62.287,0c-17.19-16.993-17.19-44.571,0-61.587L394.37,161.42l-31.144-30.793L114.144,376.975
+                                            c-34.402,34.009-34.402,89.166,0,123.174c34.402,34.009,90.15,34.009,124.552,0l280.249-277.12
+                                            c51.592-51.023,51.592-133.737,0-184.761c-51.593-51.023-135.247-51.023-186.839,0L36.285,330.784l1.072,1.071
+                                            c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
+                                            L581.209,223.007z"/>
+                                    </svg>
+                                    <span>Выберите файл</span>
+                                </label>
+                                <input type="file" name="avatar" accept="image/*" value="/static/img/ava.png"
+                                       id="id_avatar" class="input-avatar"
+                                       onchange="showFileName()"/>
+                            </div>
+                        </div>
+                        <div class="container-btn-back-step2">
+                            <div class="btn-back-step2">
+                                <svg version="1.1" id="Capa_1" x="0px" y="0px"
+                                     width="20px" height="20px" viewBox="0 0 459 459"
+                                     style="enable-background:new 0 0 459 459;">
+                                    <title>Вернуться на главную</title>
+                                    <g>
+                                        <g id="reply">
+                                            <path d="M178.5,140.25v-102L0,216.75l178.5,178.5V290.7c127.5,0,216.75,40.8,280.5,130.05C433.5,293.25,357,165.75,178.5,140.25z"
+                                            />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <button type="submit" class="btn2 btn-success btn-reg">Зарегистрироваться</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

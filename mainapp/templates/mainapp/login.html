@@ -1,0 +1,60 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}
+<title>GurSd</title>
+{% endblock %}
+
+{% block content %}
+<div class="log-reg">
+    <div class="login-form">
+        <div class="enter_svg_back">
+            <div class="svg_enter">
+                <svg id="android" viewBox="0 0 118 118" width="35px" height="35px" fill="green">
+                    <path d="M59 0a59 59 0 1 0 59 59A59 59 0 0 0 59 0zM36.2 42.4a22.2 22.2 0 0 1 6.6-15.8A22.4 22.4 0 0 1 81 42.4v17.8a3.7 3.7 0 0 1-7.4 0V42.4a14.7 14.7 0 0 0-4.4-10.5 14.9 14.9 0 0 0-10.6-4.3 15 15 0 0 0-14.9 14.9v17.8a3.7 3.7 0 0 1-7.4 0V42.4zm56.4 21.9a33.65 33.65 0 0 1-67.3 0v-10h6.3v5.9a8.3 8.3 0 0 0 2.5 5.9 8.4 8.4 0 0 0 11.8 0 8.4 8.4 0 0 0 2.5-5.9v-5.9h20.5v5.9a8.3 8.3 0 0 0 2.5 5.9 8.4 8.4 0 0 0 14.3-5.9v-5.9h7v10z">
+                    </path>
+                </svg>
+                <span>Вход</span>
+            </div>
+            <a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">
+                <svg width="20px" height="20px" viewBox="0 0 459 459">
+                    <title>Вернуться на главную</title>
+                    <path d="M178.5,140.25v-102L0,216.75l178.5,178.5V290.7c127.5,0,216.75,40.8,280.5,130.05C433.5,293.25,357,165.75,178.5,140.25z"/>
+                </svg>
+            </a>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Введите email" name="email" required>
+            <input type="password" placeholder="Введите пароль" name="psw" required>
+            <button type="submit" class="btn-success">Войти</button>
+        </form>
+        <div class="forgot_remember">
+            <div class="remember-me"><input type="checkbox" checked="checked" name="remember">
+                <span>запомнить</span>
+            </div>
+            <span class="forgot_password">Забыли <a href="#">пароль?</a></span>
+        </div>
+
+    </div>
+    <div class="or">
+        <span>ИЛИ</span>
+    </div>
+    <div class="register-form">
+        <div class="svg_registration">
+            <svg viewBox="0 0 102 102" width="35px" height="35px" fill="green">
+                <title>Регистрация</title>
+                <path d="M51.1 41.2a6.7 6.7 0 1 0-6.7-6.7 6.7 6.7 0 0 0 6.7 6.7z"
+                      fill-rule="evenodd"></path>
+                <path d="M51 0a51 51 0 1 0 51 51A51 51 0 0 0 51 0zm10.3 67.1a4.4 4.4 0 0 1 0 8.7h-4.1v2a6.3 6.3 0 1 1-12.6 0V50a16.7 16.7 0 1 1 12.6 0v17.2h4.1z"
+                      fill-rule="evenodd"></path>
+            </svg>
+            <span>Регистрация</span>
+        </div>
+        <form method="post" class="register-form1">
+            <input type="text" placeholder="Введите имя" name="fname" required>
+            <input type="text" placeholder="Введите фамилия" name="lname" required>
+            <button type="submit" class="btn-success">Далее</button>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

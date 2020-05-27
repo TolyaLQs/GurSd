@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/forums/registration.css">
+</head>
+<body>
+<div class="menu">
+    <div class="logo_links">
+        <div class="logo" title="Главная">
+            <a class="forum_start" href="forum_start.html">GurSd</a>
+        </div>
+        <div class="links">
+            <a class="forum_strim" href="forum_strim.html" title="Стримы">Стримы</a>
+            <a class="forum_video" href="forum_video.html" title="Видео">Видео</a>
+        </div>
+        <div class="search" title="Поиск">
+            <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px">
+                <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"/>
+            </svg>
+            <input type="text">
+        </div>
+    </div>
+
+    <div class="login">
+        <a href="auth.html">
+            <div class="auth">Вход/Регистрация</div>
+        </a>
+    </div>
+</div>
+
+<div class="div2">
+    <div class="sign_registr">
+        <a href="#">
+            <div class="arrow_registr">
+                <?xml version="1.0" encoding="iso-8859-1"?>
+                <svg fill="white" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 492 492" style="width: 20px; height: 20px;" xml:space="preserve">
+                    <path d="M198.608,246.104L382.664,62.04c5.068-5.056,7.856-11.816,7.856-19.024c0-7.212-2.788-13.968-7.856-19.032l-16.128-16.12
+                        C361.476,2.792,354.712,0,347.504,0s-13.964,2.792-19.028,7.864L109.328,227.008c-5.084,5.08-7.868,11.868-7.848,19.084
+                        c-0.02,7.248,2.76,14.028,7.848,19.112l218.944,218.932c5.064,5.072,11.82,7.864,19.032,7.864c7.208,0,13.964-2.792,19.032-7.864
+                        l16.124-16.12c10.492-10.492,10.492-27.572,0-38.06L198.608,246.104z"/>
+            </svg>
+                Назад
+            </div>
+        </a>
+        <div class="registr_fields">
+            <div class="field_input_registr">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="csrfmiddlewaretoken"
+                           value="OoB1sFvQvYsW5WEjWcIw8beVMzXcC22o6Mcvx6SPow53sy7ir1jy22QWEw5isXZS">
+                    <div class="input_btn_registr">
+                        <div class="step1">
+                            <input class="f_name" type="text" placeholder="Введите имя" name="f_name"
+                                   id="id_first_name">
+                            <input class="l_name" type="text" placeholder="Введите фамилию" name="l_name"
+                                   id="id_last_name">
+                            <div class="btn-success1">Далее</div>
+                        </div>
+                        <div class="step2">
+                            <input class="email" type="email" placeholder="E-mail" name="email" id="id_email">
+                            <input class="pass_field1" type="password" placeholder="Пароль" name="psw"
+                                   id="id_password1">
+                            <input class="pass_field2" type="password" placeholder="Повторите пароль" name="psw"
+                                   id="id_password2">
+                            <div class="btn-success2">Далее</div>
+                        </div>
+                        <div class="end_step">
+                            <div class="download_svg">
+                                <img class="users-avatar" src="static/img/ava.png" alt="">
+                                <div class="label_svg">
+                                    <label class="input-avatar_label" for="id_avatar">
+                                        <svg fill="white" width="20px" height="20px" viewBox="0 0 612.675 612.675">
+                                            <path d="M581.209,223.007L269.839,530.92c-51.592,51.024-135.247,51.024-186.839,0c-51.592-51.023-51.592-133.737,0-184.761
+                                            L363.248,69.04c34.402-34.009,90.15-34.009,124.553,0c34.402,34.008,34.402,89.166,0,123.174l-280.249,277.12
+                                            c-17.19,17.016-45.075,17.016-62.287,0c-17.19-16.993-17.19-44.571,0-61.587L394.37,161.42l-31.144-30.793L114.144,376.975
+                                            c-34.402,34.009-34.402,89.166,0,123.174c34.402,34.009,90.15,34.009,124.552,0l280.249-277.12
+                                            c51.592-51.023,51.592-133.737,0-184.761c-51.593-51.023-135.247-51.023-186.839,0L36.285,330.784l1.072,1.071
+                                            c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
+                                            L581.209,223.007z"/>
+                                        </svg>
+                                        <span class="file_choice">Выберите файл</span>
+                                    </label>
+
+                                    <input type="file" name="avatar" accept="image/*" id="id_avatar" class="photo"
+                                           onchange="showFileName()"/>
+
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-success">Зарегистрироваться</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/registration_js.js"></script>
+</body>
+</html>

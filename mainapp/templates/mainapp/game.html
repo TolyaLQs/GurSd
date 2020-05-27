@@ -1,0 +1,155 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+    <title>GurSd</title>
+{% endblock %}
+
+{% block content %}
+    <div class="fullgame">
+        {% for object in games %}
+            <div class="game_info_img_description">
+                <div class="game_photo_info">
+                    <div class="game-img">
+                        <img src="/media/{{ object.photo }}">
+                    </div>
+                    <div class="game-info">
+                        <div class="game-genre">Жанр:
+                            <a class="{% if request.resolver_match.url_name == 'ganre' %}active{% endif %}"
+                               href="{% url 'ganre' object.genre_name %}">
+                                {{ object.genre_name }}
+                            </a>
+                        </div>
+                        <div> Тег: {{ tags.all|join:", " }} </div>
+                        <div class="game-os">ОС: {% if object.android %}
+                            <span>Android</span>
+                        {% elif object.ios %}
+                            <span>iOS</span>
+                        {% elif object.windows %}
+                            <span>Windows</span>
+                        {% elif object.psp %}
+                            <span>PSP</span>
+                        {% elif object.xbox %}
+                            <span>Xbox</span>
+                        {% elif object.android and object.ios %}
+
+                        {% endif %}
+                        </div>
+                        <div class="game-language">Русский язык: {% if object.language %}
+                            <span>Присутствует</span>
+                        {% else %}
+                            <span>Отсутствует</span>
+                        {% endif %}
+                        </div>
+                        <div class="game-paidContent">Платный контент: {% if object.language %}
+                            <span>Присутствует</span>
+                        {% else %}
+                            <span>Отсутствует</span>
+                        {% endif %}
+                        </div>
+                        <div class="game-advertising">Реклама: {% if object.language %}
+                            <span>Присутствует</span>
+                        {% else %}
+                            <span>Отсутствует</span>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game_name_description">
+                    <div class="description">
+                        <div class="game-name">
+                            {{ object.name }}
+                        </div>
+                        <span>Описание:</span> <br>
+                        <p>{{ object.description }}</p>
+                    </div>
+                    <div class="requirements">Требования:<br> {{ object.requirements }}</div>
+                    <div class="rating">Рейтинг: {{ object.rating }}%</div>
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <div class="all_comments">
+            {% for com in comment %}
+                {% if com.complaint_quantity <= 2 and com.moder_state == 0 or com.moder_state == 1 %}
+                    <div class="comments">
+                        <div class="author_comments">
+                            <div class="author_photo"><img src="/media/{{ com.author.avatar }}"></div>
+                            <div class="author_name">{{ com.author.first_name }} {{ com.author.last_name }}</div>
+                            {% if com.moder_state == 0 %}
+                                {% if com.complaint_quantity == 0 %}
+                                    <form method="post">
+                                        <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                               value="{{ user.id }}">
+                                        <input type="hidden" name="comment" id="id_comment" value="{{ com.id }}">
+                                        <input type="hidden" name="complaint_quantity" id="id_complaint_quantity"
+                                               value="1">
+                                        <button type="submit">пожаловаться</button>
+                                    </form>
+                                {% elif com.complaint_quantity == 1 %}
+                                    <form method="post">
+                                        <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                               value="{{ user.id }}">
+                                        <input type="hidden" name="comment" id="id_comment" value="{{ com.id }}">
+                                        <input type="hidden" name="complaint_quantity" id="id_complaint_quantity"
+                                               value="2">
+                                        <button type="submit">пожаловаться</button>
+                                    </form>
+                                {% elif com.complaint_quantity == 2 %}
+                                    <form method="post">
+                                        <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                               value="{{ user.id }}">
+                                        <input type="hidden" name="comment" id="id_comment" value="{{ com.id }}">
+                                        <input type="hidden" name="complaint_quantity" id="id_complaint_quantity"
+                                               value="3">
+                                        <button type="submit">пожаловаться</button>
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <div class="author_text_comment">
+                            <div class="text_comment">
+                                {{ com.text }}
+                            </div>
+                        </div>
+                        <div class="date_time">
+                            <div class="date">{{ com.date_added }}</div>
+                            <div class="time"></div>
+                        </div>
+                        <div class="border_middle_comments"></div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="enter_comment">
+                <div class="download_comment_photo">
+                    <form class="form_comment" action="" method="post">
+                        <label class="input_comment_label" for="id_avatar">
+                            <svg fill="black" width="20px" height="20px" viewBox="0 0 612.675 612.675">
+                                <path d="M581.209,223.007L269.839,530.92c-51.592,51.024-135.247,51.024-186.839,0c-51.592-51.023-51.592-133.737,0-184.761
+                            L363.248,69.04c34.402-34.009,90.15-34.009,124.553,0c34.402,34.008,34.402,89.166,0,123.174l-280.249,277.12
+                            c-17.19,17.016-45.075,17.016-62.287,0c-17.19-16.993-17.19-44.571,0-61.587L394.37,161.42l-31.144-30.793L114.144,376.975
+                            c-34.402,34.009-34.402,89.166,0,123.174c34.402,34.009,90.15,34.009,124.552,0l280.249-277.12
+                            c51.592-51.023,51.592-133.737,0-184.761c-51.593-51.023-135.247-51.023-186.839,0L36.285,330.784l1.072,1.071
+                            c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
+                            L581.209,223.007z"/>
+                            </svg>
+                            <input type="file" name="avatar" accept="image/*"
+                                   id="id_avatar" class="input-avatar"
+                                   onchange="showFileName()"/>
+                            <input class="text_field_comment" name="text" id="id_text" type="text"
+                                   placeholder="Напишите комментарий">
+                            <input type="hidden" name="author" id="id_author" value="{{ user.id }}">
+                            <input type="hidden" name="game_name" id="ig_game_name" value="{{ name }}">
+                        </label>
+                        <button type="submit" class="download_comments_photo">Send</button>
+                    </form>
+                </div>
+                <img class="comments_photo" src="" alt="">
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

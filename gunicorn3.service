@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn3 daemon
+After=network.target
+
+[Service]
+User=gursd
+Group=www-data
+WorkingDirectory=/home/gursd/kursach
+ExecStart=/usr/bin/gunicorn3 --access-logfile log --workers 2 --bind unix:/home/gursd/kursach/kursach.sock kursach.wsgi
+
+[Install]
+WantedBy=multi-user.target

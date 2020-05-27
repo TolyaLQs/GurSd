@@ -1,0 +1,125 @@
+.log-reg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+}
+
+.login-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px 0 0 15px;
+    margin-right: 10px;
+}
+
+.enter_svg_back{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+}
+
+.svg_enter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+}
+
+.enter_svg_back span{
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+}
+
+.register-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 300px;
+    height: 350px;
+    border-radius: 0 15px 15px 0;
+}
+
+.login-form form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 110px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number]{
+    width: 250px;
+    height: 30px;
+    padding-left: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn-success1{
+    background-color: #22A928;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.btn-success1:active{
+    outline: none;
+}
+
+.forgot_remember{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+}
+
+.remember-me{
+    display: flex;
+    align-items: center;
+    height: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.remember-me span{
+    line-height: 13px;
+    height: 15px;
+}
+
+.forgot_password{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    line-height: 13px;
+    height: 15px;
+}
+
+input[type=checkbox]{
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    outline: none;
+}

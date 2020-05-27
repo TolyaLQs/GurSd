@@ -1,0 +1,572 @@
+body{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/static/img/fon12.jpg');
+}
+
+.user_site_prifile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 850px;
+    background-color: white;
+    margin: 10px 0 10px 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.photo_name_user1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 670px;
+    height: 200px;
+}
+
+.user_photo{
+    position: relative;
+    display: flex;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 2px 0 0 #d7d8db, 2px 2px 5px 2px #e3e4e8;
+}
+
+.user_photo img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.user_photo_settings{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 150px;
+    height: 75px;
+    border-radius: 0 0 75px 75px;
+    background-color: rgba(29,32,34,0.7);
+    z-index: 3000;
+    top: 75px
+}
+
+.user_photo_settings_change{
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    width: 150px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    color: lightgray;
+    cursor: pointer;
+}
+
+.user_photo_settings_delete{
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    width: 150px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    color: lightgray;
+}
+
+.user_photo_settings_change:hover{
+    color: white;
+}
+
+.user_photo_settings_delete:hover{
+    color: white;
+}
+
+.user_name_other{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 80px;
+}
+
+.name_settings{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 320px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.settings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings:hover{
+    cursor: pointer;
+}
+
+.user_name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+    height: 50px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.subscribe_edit_message{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin-right: 197px;
+}
+
+.subscribe_edit_message a{
+    text-decoration: none;
+    color: black;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 30px;
+}
+
+.subscribe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+}
+
+.subscribe_mark_checked{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 30px;
+}
+
+.mark_checked{
+    display: none;
+}
+
+.subscribe:hover{
+    cursor: pointer;
+}
+
+.send_message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.send_message:hover{
+    cursor: pointer;
+}
+
+.user_menu_border{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 1px;
+    background-color: black;
+    margin: 20px 0 0 0;
+}
+
+.friends_game_user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+    margin: 10px 0 20px 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 17px;
+}
+
+.game_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+}
+
+.game_user:hover{
+    border-top: 2px solid black;
+    cursor: pointer;
+}
+
+.friends_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+}
+
+.friends_user:hover{
+    border-top: 2px solid black;
+    cursor: pointer;
+}
+
+.user_all_game{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 10px 0 20px 0;
+}
+
+.user_all_game a{
+    text-decoration:none;
+    color: black;
+}
+
+.game_img_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 360px;
+
+}
+
+.game_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 300px;
+    background-color: aqua;
+    box-shadow: 0 2px 0 0 #d7d8db, 2px 2px 5px 2px #e3e4e8;
+}
+
+.game_img img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 300px;
+    background-color: aqua;
+}
+
+.game_img:hover{
+    cursor: pointer;
+}
+
+.game_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    padding-bottom: 30px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 17px;
+    letter-spacing: 1px
+}
+
+.game_name:hover{
+    cursor: pointer;
+}
+
+.user_friends{
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 700px;
+    margin: 10px 0 20px 50px;
+}
+
+.friends_photo_name{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 250px;
+    height: 100px;
+    margin-bottom: 40px;
+}
+
+.friends_photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: aqua;
+    box-shadow: 0 2px 0 0 #d7d8db, 2px 2px 5px 2px #e3e4e8;
+}
+
+.friends_photo img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: aqua;
+}
+
+.friends_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-right: 50px;
+}
+
+/*Message*/
+
+.user_site_message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    margin: 10px 0 10px 0;
+}
+
+.message_user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 900px;
+    height: 550px;
+    border-radius: 5px;
+}
+
+.field_friends{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-right: 1px solid black;
+    width: 300px;
+    height: 551px;
+}
+
+.text_message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 300px;
+    height: 50px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.message_list{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.message_list::-webkit-scrollbar {
+    width: 0;
+}
+
+.message_list a{
+    text-decoration: none;
+    color: black;
+}
+
+.user_hover{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 70px;
+}
+
+.user_hover:hover{
+    background-color: #e8e8e8;
+}
+
+.user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 120px;
+    height: 70px;
+    margin-left: 20px;
+}
+
+.user_message_photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.user_message_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 70px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+}
+
+.field_enter_message{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 553px;
+}
+
+.field_start_message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 553px;
+}
+
+.create_new_message{
+    margin-bottom: 10px;
+}
+
+.text_for_start_message span{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 17px;
+}
+
+.user_visit_online{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 600px;
+    height: 50px;
+}
+
+.user_name_photo_online{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+}
+
+.online_photo_name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+    height: 50px;
+}
+
+.user_online_photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.user_online_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+}
+
+.be_online{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

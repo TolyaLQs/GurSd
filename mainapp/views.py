@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
 from django.urls import reverse
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.template.context_processors import csrf
 
 from mainapp.forms import GameCommentForm, ComplaintForm, ComplaintGCForm
@@ -207,15 +207,20 @@ def user_login(request):
                     'GurSdGames',
                     message,
                     'testyatesttest@yandex.ru',
-                    ['sdtolya@gmail.com'],
+                    [u'sdtolya@gmail.com'],
                 )
                 return HttpResponseRedirect(reverse('index'))
         elif 'fname' in request.POST and request.POST['fname']:
             first_name = request.POST['fname']
             last_name = request.POST['lname']
-            request.session['fname'] = first_name
-            request.session['lname'] = last_name
-            return HttpResponseRedirect(reverse('register'))
+
+            print(len(first_name))
+            if len(first_name) > 15:
+                return HttpResponse()
+            else:
+                request.session['fname'] = first_name
+                request.session['lname'] = last_name
+                return HttpResponseRedirect(reverse('register'))
 
     return render(request, 'mainapp/login.html')
 

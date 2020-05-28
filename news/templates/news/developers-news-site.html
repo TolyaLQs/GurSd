@@ -1,39 +1,37 @@
 {% extends 'news/base.html' %}
 {% block content %}
-<div class="news-feed">
-    <div class="sorting-by-games-developers">
-        <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
-               href="{% url 'news:news_all' %}"><span class="sorting-by-news">Новости</span></a>
-        <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
-               href="{% url 'news:news_game' %}"><span class="active-game-news sorting-by-games">Игры</span></a>
-        <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
-               href="{% url 'news:news_developers' %}"><span class="sorting-by-developers">Разработчики</span></a>
-    </div>
-    <div class="feed">
-        <div class="feed">
-        {% for n in new %}
-        <div class="news-post-border">
+    <div class="news-feed">
+        <div class="sorting-by-games-developers">
             <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
-               href="{% url 'news:new' n.id %}">
-                <div class="news-post">
-                    <div class="news-photo"><img src="{{ n.avatar.url }}"></div>
-                    <div class="news-text">
+               href="{% url 'news:news_all' %}"><span class="sorting-by-news">Новости</span></a>
+            <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
+               href="{% url 'news:news_game' %}"><span class="sorting-by-games">Игры</span></a>
+            <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
+               href="{% url 'news:news_developers' %}"><span class="active-developers-news sorting-by-developers">Разработчики</span></a>
+        </div>
+        <div class="feed">
+            {% for n in new %}
+                <div class="news-post-border">
+                    <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
+                       href="{% url 'news:new' n.id %}">
+                        <div class="news-post">
+                            <div class="news-photo"><img src="{{ n.avatar.url }}"></div>
+                            <div class="news-text">
                     <span>
                         {{ n.name|truncatechars:50 }}
                     </span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="post-time-and-date">
+                        <div class="post-time">{{ n.date|time:'H:i a' }}</div>
+                        <div class="post-date">{{ n.date|date:'d.m.Y' }}</div>
                     </div>
+                    <div class="post-bottom-border"></div>
                 </div>
-            </a>
-            <div class="post-time-and-date">
-                <div class="post-time">{{ n.date|time:'H:i a' }}</div>
-                <div class="post-date">{{ n.date|date:'d.m.Y' }}</div>
-            </div>
-            <div class="post-bottom-border"></div>
-        </div>
             {% empty %}
-                <div>Новости не добавлены</div>
-        {% endfor %}
+                <div class="news-not-added">Новости не добавлены</div>
+            {% endfor %}
+        </div>
     </div>
-    </div>
-</div>
 {% endblock %}

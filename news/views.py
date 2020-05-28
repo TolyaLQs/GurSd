@@ -33,7 +33,7 @@ def news_developers(request):
 def new(request, n=None):
     if request.method == 'GET':
         if n:
-            new_ = New.objects.filter(id=n)
+            new = New.objects.filter(id=n)
             comment = NewComment.objects.filter(new_name=n)
             context = {
                 'new': new,
@@ -44,7 +44,6 @@ def new(request, n=None):
 
     if request.method == 'POST':
         if 'text' in request.POST and request.POST['text']:
-            print('121')
             add_comment = NewCommentForm(request.POST, request.FILES)
             print('1')
             if add_comment.is_valid():
@@ -79,9 +78,15 @@ def new(request, n=None):
                         'n': n,
                     }
                     return render(request, 'news/full-information-page-news.html', context)
-    context = {
-        'n': n,
-    }
-    return render(request, 'news/full-information-page-news.html', context)
+    else:
+        if n:
+            new = New.objects.filter(id=n)
+            comment = NewComment.objects.filter(new_name=n)
+            context = {
+                'new': new,
+                'comment': comment,
+                'n': n,
+            }
+            return render(request, 'news/full-information-page-news.html', context)
 
 # Create your views here.

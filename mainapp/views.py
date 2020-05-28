@@ -160,11 +160,21 @@ def game(request, name=None):
                             'name': name,
                         }
                         return render(request, 'mainapp/game.html', context)
-
-    context = {
-        'name': name,
-    }
-    return render(request, 'mainapp/game.html', context)
+        else:
+            if name:
+                print(name)
+                games = Game.objects.filter(name=name)
+                comment = GameComment.objects.filter(game_name=name)
+                # complaintgsu = ComplaintGC.objects.filter(user_complaint=request.user)
+                # print(complaintgsu)
+                tags = Tag.objects.filter(tag_game__name=name)
+                context = {
+                    'comment': comment,
+                    'games': games,
+                    'name': name,
+                    'tags': tags,
+                }
+                return render(request, 'mainapp/game.html', context)
 
 
 def ganre(request, gan):

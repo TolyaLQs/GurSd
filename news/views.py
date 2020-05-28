@@ -33,8 +33,7 @@ def news_developers(request):
 def new(request, n=None):
     if request.method == 'GET':
         if n:
-            print(n)
-            new = New.objects.filter(id=n)
+            new_ = New.objects.filter(id=n)
             comment = NewComment.objects.filter(new_name=n)
             context = {
                 'new': new,
@@ -44,11 +43,14 @@ def new(request, n=None):
             return render(request, 'news/full-information-page-news.html', context)
 
     if request.method == 'POST':
-        if 'desc' in request.POST and request.POST['desc']:
+        if 'text' in request.POST and request.POST['text']:
             print('121')
             add_comment = NewCommentForm(request.POST, request.FILES)
+            print('1')
             if add_comment.is_valid():
+                print('2')
                 add_comment.save()
+                print('3')
                 if n:
                     new = New.objects.filter(id=n)
                     comment = NewComment.objects.filter(new_name=n)

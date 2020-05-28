@@ -75,7 +75,7 @@ body {
 
 .photo_name_user {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 50px;
 }
@@ -88,6 +88,7 @@ body {
     height: 40px;
     border-radius: 50%;
     background-color: white;
+    margin-right: 10px;
 }
 
 .photo_user_profile img {
@@ -100,7 +101,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: white;

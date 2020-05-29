@@ -117,7 +117,12 @@ body {
     align-items: center;
     width: 1150px;
     height: 170px;
-    margin-top: 20px;
+    margin-top: 5px;
+}
+
+.links-at-forum-news a{
+    text-decoration: none;
+    color: black;
 }
 
 .invitation-in-the-forum{
@@ -128,6 +133,10 @@ body {
     height: 150px;
     background-color: white;
     border-radius: 5px;
+}
+
+.invitation-in-the-forum:hover{
+    background-color: skyblue;
 }
 
 .forum-title-content-invitation{
@@ -162,6 +171,10 @@ body {
     border-radius: 5px;
 }
 
+.invitation-in-the-news:hover{
+    background-color: skyblue;
+}
+
 .news-title-content-invitation{
     display: flex;
     justify-content: space-around;
@@ -192,7 +205,7 @@ body {
     flex-direction: column;
     width: 750px;
     background-color: white;
-    margin: 20px 20px 20px 0;
+    margin: 10px 20px 20px 0;
     box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
     border-radius: 5px 0 0 5px;
 }
@@ -342,6 +355,11 @@ body {
     margin-bottom: 10px;
 }
 
+.game_photo_name a{
+    text-decoration: none;
+    color: black;
+}
+
 .game_photo{
     display: flex;
     justify-content: center;
@@ -383,6 +401,10 @@ body {
     font-weight: bold;
 }
 
+.game_name:hover{
+    color: dodgerblue;
+}
+
 .games-with-this-os-are-not-added{
     display: flex;
     justify-content: center;
@@ -410,7 +432,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 300px;
-    margin: 20px 0 20px 0;
+    margin: 10px 0 20px 0;
 }
 
 .ganre{
@@ -772,6 +794,9 @@ body {
     align-items: center;
     height: 50px;
     margin-right: 20px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .reporting{

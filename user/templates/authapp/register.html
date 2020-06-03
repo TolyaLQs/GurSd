@@ -1,29 +1,16 @@
-{% extends 'mainapp/base.html' %}
+{% extends 'authapp/base.html' %}
 {% block title %}
 <title>GurSd</title>
 {% endblock %}
 
 {% block content %}
 <div class="container-register">
-    <div class="breadcrumbs">
-        <div class="all-steps">
-            <div class="arrow-step1"></div>
-            <div class="step_1 trek1"><span>Шаг 1</span>
-            </div>
-            <div class="step_2 trek2 activestep trek"><span>Шаг 2</span>
-                <!--<div class="arrow-step2"></div>-->
-            </div>
-            <div class="step_3 trek3 trek"><span>Шаг 3</span>
-
-            </div>
-            <div class="arrow-step3 trek"></div>
-        </div>
-    </div>
     <div class="user-form">
         <div class="register">
             <div class="reg-form">
                 <form enctype="multipart/form-data" method="post">
                     {% csrf_token %}
+                    {# {{ register_form.as_p }}#}
                     <div class="form-step_1">
                         <input type="text" name="first_name" value="{{ fname }}" placeholder="Введите имя"
                                maxlength="30"
@@ -67,7 +54,7 @@
                     </div>
                     <div class="form-step_3">
                         <div class="img-ava">
-                            <img class="users-avatar" src="" alt="">
+                            <img class="users-avatar" src="/media/users/ava.png" alt="">
                             <div class="download-photo">
                                 <label class="input-avatar_label" for="id_avatar">
                                     <svg fill="black" width="20px" height="20px" viewBox="0 0 612.675 612.675">
@@ -81,9 +68,10 @@
                                     </svg>
                                     <span>Выберите файл</span>
                                 </label>
-                                <input type="file" name="avatar" accept="image/*" value="/static/img/ava.png"
+                                <input type="file" name="avatar" accept="image/*"
                                        id="id_avatar" class="input-avatar"
                                        onchange="showFileName()"/>
+
                             </div>
                         </div>
                         <div class="container-btn-back-step2">

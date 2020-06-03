@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mainapp.models import Game, Genre, GameComment, UserGame, ComplaintGC, Tag
+from mainapp.models import Game, Genre, GameComment, UserGame, ComplaintGCG, Tag
 
 
 class GameAdmin(admin.ModelAdmin):
@@ -30,7 +30,7 @@ admin.site.register(Game,GameAdmin)
 admin.site.register(GameComment)
 admin.site.register(Genre)
 admin.site.register(UserGame)
-admin.site.register(ComplaintGC)
+admin.site.register(ComplaintGCG)
 admin.site.register(Tag)
 # admin.site.register(TegGame)
 

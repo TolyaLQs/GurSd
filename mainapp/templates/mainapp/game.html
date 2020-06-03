@@ -79,7 +79,7 @@
                         <div class="author_comments">
                             <div class="author_photo"><img src="/media/{{ com.author.avatar }}"></div>
                             <div class="author_name">{{ com.author.first_name }} {{ com.author.last_name }}</div>
-                            {% if com.moder_state == 0 %}
+                            {% if com.moder_state == 0 and user.is_authenticated %}
                                 {% if com.complaint_quantity == 0 %}
                                     <form method="post">
                                         <input type="hidden" name="user_complaint" id="id_user_complaint"

@@ -1,10 +1,10 @@
 import django.forms as forms
-from news.models import New, NewComment, ComplaintGCN
+from forums.models import ForumsRazdel, ForumsTema, ForumsComment, ComplaintGCF
 
 
-class NewForm(forms.ModelForm):
+class ForumsTema(forms.ModelForm):
     class Meta:
-        model = New
+        model = ForumsRazdel
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
@@ -13,10 +13,10 @@ class NewForm(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
 
-class NewCommentForm(forms.ModelForm):
+class ForumsCommentForm(forms.ModelForm):
     class Meta:
-        model = NewComment
-        fields = ('avatar', 'text', 'author', 'new_name')
+        model = ForumsComment
+        fields = ('avatar', 'text', 'author', 'forums')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,8 +26,8 @@ class NewCommentForm(forms.ModelForm):
 
 class ComplaintForm(forms.ModelForm):
     class Meta:
-        model = NewComment
-        fields = ('complaint_quantity',)
+        model = ForumsComment
+        fields = ('com_complaint_quantity',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -37,8 +37,8 @@ class ComplaintForm(forms.ModelForm):
 
 class ComplaintGCForm(forms.ModelForm):
     class Meta:
-        model = ComplaintGCN
-        fields = ('user_complaint', 'comment',)
+        model = ComplaintGCF
+        fields = ('user_complaint', 'tema',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

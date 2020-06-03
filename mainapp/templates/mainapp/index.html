@@ -6,7 +6,8 @@
 
 {% block content %}
     <div class="links-at-forum-news">
-        <a href="">
+        <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
+                   href="{% url 'forums:forums' %}">
             <div class="invitation-in-the-forum">
                 <div class="forum-title-content-invitation">
                 <span class="forum-title">
@@ -81,6 +82,8 @@
                             </a>
                         </div>
                     </div>
+                    {% empty %}
+                <div class="games-with-this-os-are-not-added">Игры с данной ОС не добавлены</div>
                 {% endfor %}
             </div>
         </div>

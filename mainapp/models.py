@@ -98,8 +98,8 @@ class GameComment(models.Model):
         verbose_name_plural = 'Коментарии'
 
 
-class ComplaintGC(models.Model):
-    user_complaint = models.ForeignKey(User, verbose_name='Автор жалобы', related_name='автор', on_delete=models.CASCADE)
+class ComplaintGCG(models.Model):
+    user_complaint = models.ForeignKey(User, verbose_name='Автор жалобы', related_name='автор_ж_к_и', on_delete=models.CASCADE)
     comment = models.ForeignKey(GameComment, verbose_name='Коментарий', on_delete=models.CASCADE)
 
 

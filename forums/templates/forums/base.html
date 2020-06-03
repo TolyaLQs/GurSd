@@ -3,42 +3,87 @@
 <head>
     <meta charset="UTF-8">
     {% block title %}
-    <title>Title</title>
+        <title>Title</title>
     {% endblock %}
-    <link rel="stylesheet" href="static/forum_start.css">
-    <link rel="stylesheet" href="static/auth.css">
-    <link rel="stylesheet" href="static/forum.css">
-    <link rel="stylesheet" href="static/forum_games.css">
-    <link rel="stylesheet" href="static/forum_strim.css">
-    <link rel="stylesheet" href="static/forum.css">
-    <link rel="stylesheet" href="static/forum_game_ganr.css">
+    <link rel="stylesheet" href="/static/css/forums/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 {% block menu %}
-<div class="menu">
-    <div class="logo_links">
-        <div class="logo">
-            <a class="forum_start" href="forum_start.html">LOGO</a>
+    <div class="block-site-menu">
+        <div class="site-menu">
+
+            <div class="site-logotype">
+                <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
+                   href="{% url 'forums:forums' %}"><span>GSForum</span></a>
+            </div>
+
+            <div class="links-to-sites">
+                <a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"
+                   href="{% url 'index' %}"><span>GSGames</span></a>
+                <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
+                   href="{% url 'news:news_all' %}"><span>GSNews</span></a>
+            </div>
+
+            <div class="forums-menu-search">
+                <form action="" method="post">
+                    <input class="input-search-in-menu" type="text" placeholder="Поиск">
+                    <svg fill="black" width="18" height="18" viewBox="0 0 612.08 612.08">
+                        <path d="M237.927,0C106.555,0,0.035,106.52,0.035,237.893c0,131.373,106.52,237.893,237.893,237.893
+                    c50.518,0,97.368-15.757,135.879-42.597l0.028-0.028l176.432,176.433c3.274,3.274,8.48,3.358,11.839,0l47.551-47.551
+                    c3.274-3.274,3.106-8.703-0.028-11.838L433.223,373.8c26.84-38.539,42.597-85.39,42.597-135.907C475.82,106.52,369.3,0,237.927,0z
+                    M237.927,419.811c-100.475,0-181.918-81.443-181.918-181.918S137.453,55.975,237.927,55.975s181.918,81.443,181.918,181.918
+                    S338.402,419.811,237.927,419.811z"/>
+                    </svg>
+                </form>
+            </div>
+
+            <div class="photo-username-login-logout">
+                {% if user.is_authenticated %}
+                    <div class="photo-and-username">
+                        {% if user.avatar %}
+                            <div class="users-photo">
+                                <img src="{{ user.avatar.url }}" id="user_avatar">
+                            </div>
+                        {% endif %}
+                        <div class="users-name">
+                            <a href="{% url 'auth:profile' user.id %}">
+                                <span>{{ user.first_name|truncatechars:10 | default:"пользователь" }}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="news-login-logout">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'auth:logout' %}">
+                            <svg id="login" viewBox="0 0 17.01 15.87" width="30px" height="30px" fill="red">
+                                <title>выход</title>
+                                <path d="M266.77 144.53a7.93 7.93 0 1 1-5.6 13.56 8.22 8.22 0 0 1-1.86-2.88h2.34a4.8 4.8 0 0 0 1 1.37 5.81 5.81 0 1 0 0-8.19 6 6 0 0 0-1.09 1.46h-2.32a7.87 7.87 0 0 1 1.89-3 8 8 0 0 1 5.6-2.34z"
+                                      transform="translate(-257.71 -144.53)"></path>
+                                <path d="M269.54 153.15a.78.78 0 0 0 0-1.23l-2.37-2.54a1.21 1.21 0 0 0-.2-.14 1.24 1.24 0 0 0-.2-.11 1 1 0 0 0-.43-.09h-.23a1 1 0 0 0-.4.17.83.83 0 0 0-.31.31 1.34 1.34 0 0 0-.17.43.56.56 0 0 0 0 .23 1.14 1.14 0 0 0 .09.43.72.72 0 0 0 .11.2.76.76 0 0 0 .14.17l1.37 1.51-1.37 1.51a.76.76 0 0 0-.14.17 1.64 1.64 0 0 0-.11.2 1.29 1.29 0 0 0-.09.46.71.71 0 0 0 0 .23 1.21 1.21 0 0 0 .17.4.83.83 0 0 0 .31.31 1 1 0 0 0 .4.17.71.71 0 0 0 .23 0 1 1 0 0 0 .43-.09.46.46 0 0 0 .2-.11.51.51 0 0 0 .2-.14zm0-1.23z"
+                                      transform="translate(-257.71 -144.53)"></path>
+                                <path d="M267.89 153v.62h-9.09a1.08 1.08 0 0 1-1.09-1.08 1.08 1.08 0 0 1 1.09-1.08h9.2l-.06.31c0 .14 0 .31-.06.46v.77z"
+                                      transform="translate(-257.71 -144.53)"></path>
+                            </svg>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'auth:login' %}">
+                            <svg id="login" viewBox="0 0 17.01 15.87" width="30px" height="30px" fill="green">
+                                <title>вход</title>
+                                <path d="M266.77 144.53a7.93 7.93 0 1 1-5.6 13.56 8.22 8.22 0 0 1-1.86-2.88h2.34a4.8 4.8 0 0 0 1 1.37 5.81 5.81 0 1 0 0-8.19 6 6 0 0 0-1.09 1.46h-2.32a7.87 7.87 0 0 1 1.89-3 8 8 0 0 1 5.6-2.34z"
+                                      transform="translate(-257.71 -144.53)"></path>
+                                <path d="M269.54 153.15a.78.78 0 0 0 0-1.23l-2.37-2.54a1.21 1.21 0 0 0-.2-.14 1.24 1.24 0 0 0-.2-.11 1 1 0 0 0-.43-.09h-.23a1 1 0 0 0-.4.17.83.83 0 0 0-.31.31 1.34 1.34 0 0 0-.17.43.56.56 0 0 0 0 .23 1.14 1.14 0 0 0 .09.43.72.72 0 0 0 .11.2.76.76 0 0 0 .14.17l1.37 1.51-1.37 1.51a.76.76 0 0 0-.14.17 1.64 1.64 0 0 0-.11.2 1.29 1.29 0 0 0-.09.46.71.71 0 0 0 0 .23 1.21 1.21 0 0 0 .17.4.83.83 0 0 0 .31.31 1 1 0 0 0 .4.17.71.71 0 0 0 .23 0 1 1 0 0 0 .43-.09.46.46 0 0 0 .2-.11.51.51 0 0 0 .2-.14zm0-1.23z"
+                                      transform="translate(-257.71 -144.53)"></path>
+                                <path d="M267.89 153v.62h-9.09a1.08 1.08 0 0 1-1.09-1.08 1.08 1.08 0 0 1 1.09-1.08h9.2l-.06.31c0 .14 0 .31-.06.46v.77z"
+                                      transform="translate(-257.71 -144.53)"></path>
+                            </svg>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-        <div class="links">
-            <a class="forum_strim" href="forum_strim.html">Стримы</a>
-            <a class="forum_tournirs" href="#">Турниры</a>
-            <a class="forum_video" href="#">Видео</a>
-        </div>
     </div>
-    <div class="search">
-        <?xml version="1.0"?>
-        <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px">
-            <path d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 20 22 L 22 20 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"/>
-        </svg>
-        <input type="text" placeholder="Искать?">
-    </div>
-    <div class="login">
-        <a href="auth.html">
-            <div class="auth">Вход/Регистрация</div>
-        </a>
-    </div>
-</div>
 {% endblock %}
 {% block content %}
 {% endblock %}

@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.template.context_processors import csrf
 
 from mainapp.forms import GameCommentForm, ComplaintForm, ComplaintGCForm
-from mainapp.models import Game, Genre, GameComment, ComplaintGC
+from mainapp.models import Game, Genre, GameComment, ComplaintGCG
 from django.template.loader import render_to_string
 from user.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -165,7 +165,7 @@ def game(request, name=None):
                 print(name)
                 games = Game.objects.filter(name=name)
                 comment = GameComment.objects.filter(game_name=name)
-                # complaintgsu = ComplaintGC.objects.filter(user_complaint=request.user)
+                # complaintgsu = ComplaintGCG.objects.filter(user_complaint=request.user)
                 # print(complaintgsu)
                 tags = Tag.objects.filter(tag_game__name=name)
                 context = {
@@ -195,73 +195,3 @@ def ganre(request, gan):
 
     return render(request, 'mainapp/ganre.html', context)
 
-
-def user_login(request):
-    if request.is_ajax():
-        print('AJAX login', request.META['HTTP_REFERER'])
-        context = {
-            'login': reverse('auth:login'),
-        }
-        return JsonResponse(context)
-
-    if request.POST:
-        if 'email' in request.POST and request.POST['email']:
-            email = request.POST['email']
-            password = request.POST['psw']
-            user = authenticate(email=email, password=password)
-            if user is not None:
-                print('пользователь найден: ', user)
-                login(request, user)
-                message = f'Пользаватель с емайлом {email} залогинелся'
-                send_mail(
-                    'GurSdGames',
-                    message,
-                    'testyatesttest@yandex.ru',
-                    [u'lotarev1999@inbox.ru'],
-                )
-                return HttpResponseRedirect(reverse('index'))
-        elif 'fname' in request.POST and request.POST['fname']:
-            first_name = request.POST['fname']
-            last_name = request.POST['lname']
-            request.session['fname'] = first_name
-            request.session['lname'] = last_name
-            return HttpResponseRedirect(reverse('register'))
-
-    return render(request, 'mainapp/login.html')
-
-
-def user_logout(request):
-    logout(request)  # стираем токен аутентификации из cookie
-    return HttpResponseRedirect(reverse('index'))
-
-
-def user_register(request):
-    register_form = MyUserCreationForm()
-    fname = request.session.get('fname', 'Нет имени')
-    lname = request.session.get('lname', 'Нет фамилии')
-    if request.method == "POST":
-        register_form = MyUserCreationForm(request.POST, request.FILES)
-        if register_form.is_valid():
-            register_form.save()
-            email = request.POST['email']
-            password = request.POST['password1']
-            user = authenticate(email=email, password=password)
-            if user is not None:
-                print('пользователь найден: ', user)
-                login(request, user)
-                # send_mail(
-                #     'GurSdGames',
-                #     f'Пользаватель с емайлом {email} зарегистрировался',
-                #     'testyatesttest@yandex.ru',
-                #     ['sdtolya@gmail.com'],
-                # )
-                return HttpResponseRedirect(reverse('index'))
-    else:
-        register_form = MyUserCreationForm()
-    context = {
-        'register_form': register_form,
-        'fname': fname,
-        'lname': lname,
-    }
-
-    return render(request, 'mainapp/register.html', context)

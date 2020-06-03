@@ -1,0 +1,34 @@
+{% extends 'forums/base.html' %}
+{% block content %}
+<div class="forums-gs-and-recently-added">
+    <div class="forums-gs">
+        <span>Форумы GSForums</span>
+        {% for razdels in forums_razdel %}
+        <div class="themes-forum">
+            <div class="named-themes-quantity-themes-asks">
+                <a href="create-new-theme.html"><span>{{ razdels.name_game }}</span></a>
+                <div class="quantity-themes-asks">
+                    <span>Тем: {{ razdels.quantity_themes }}</span>
+                    <span>Ответов: </span>
+                </div>
+            </div>
+        </div>
+            {% empty %}
+            <div>Форумы не добавленны</div>
+        {% endfor %}
+    </div>
+    <div class="recently-added-themes">
+        <span class="recently-themes-title">Недавние темы</span>
+        {% for temas in forums_tema %}
+        <div class="recently-themes">
+            <div class="recently-added-theme-and-quantity-message-this-theme">
+                <a href="themes-post.html"><span class="recently-added-theme">{{ temas.name }}</span></a>
+                <span class="quantity-message-this-theme" title="Количество сообщений">999</span>
+            </div>
+        </div>
+            {% empty %}
+            <div>Темы не добавленны</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

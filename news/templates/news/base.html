@@ -47,7 +47,7 @@
             {% endif %}
             <div class="news-login-logout">
                 {% if user.is_authenticated %}
-                    <a href="{% url 'logout' %}">
+                    <a href="{% url 'auth:logout' %}">
                         <svg id="login" viewBox="0 0 17.01 15.87" width="30px" height="30px" fill="red">
                             <title>выход</title>
                             <path d="M266.77 144.53a7.93 7.93 0 1 1-5.6 13.56 8.22 8.22 0 0 1-1.86-2.88h2.34a4.8 4.8 0 0 0 1 1.37 5.81 5.81 0 1 0 0-8.19 6 6 0 0 0-1.09 1.46h-2.32a7.87 7.87 0 0 1 1.89-3 8 8 0 0 1 5.6-2.34z"
@@ -59,7 +59,7 @@
                         </svg>
                     </a>
                 {% else %}
-                    <a href="{% url 'login' %}">
+                    <a href="{% url 'auth:login' %}">
                         <svg id="login" viewBox="0 0 17.01 15.87" width="30px" height="30px" fill="green">
                             <title>вход</title>
                             <path d="M266.77 144.53a7.93 7.93 0 1 1-5.6 13.56 8.22 8.22 0 0 1-1.86-2.88h2.34a4.8 4.8 0 0 0 1 1.37 5.81 5.81 0 1 0 0-8.19 6 6 0 0 0-1.09 1.46h-2.32a7.87 7.87 0 0 1 1.89-3 8 8 0 0 1 5.6-2.34z"

@@ -1,0 +1,33 @@
+{% extends 'forums/base.html' %}
+{% block content %}
+
+    <div class="create-new-themes">
+        <a href="#"><span>Создайте тему</span></a>
+    </div>
+
+    <div class="all-posts-on-this-topic">
+        {% for temas in forums_tema %}
+            <span class="name-theme">{{ temas.razdel.name_game }}</span>
+            <div class="all-posts">
+            <div class="title-content-date-time-nameAuthor-post">
+                <div class="title-content-post">
+                    <a href="themes-post.html"><span class="posts-title">
+                    {{ temas.name }}
+                </span></a>
+                    <span class="posts-content">
+                    {{ temas.text|truncatechars:50 }}
+                </span>
+                </div>
+                <div class="date-time-authors-post">
+                    <a href="#"><span>{{ temas.author.first_name }} {{ temas.author.last_name }}</span></a>
+                    <span>{{ temas.date_create|time:'H:i a' }}</span>
+                    <span>{{ temas.date_create|date:'d.m.Y' }}</span>
+                </div>
+            </div>
+        {% empty %}
+            <div>Темы не добавленны</div>
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

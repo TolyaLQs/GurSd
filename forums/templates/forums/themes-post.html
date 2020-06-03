@@ -1,0 +1,98 @@
+{% extends 'forums/base.html' %}
+{% block content %}
+    {% for tema in forums_tema %}
+        <div class="content-written-by-the-author">
+        <div class="post-written-by-the-author">
+            <div class="content-post">
+            <span class="authors-title">
+                {{ tema.name }}
+            </span>
+                <span class="authors-written">
+                {{ tema.text }}
+            </span>
+            </div>
+            <div class="authors-name-date-time">
+                <a href="{% url 'auth:profile' tema.author.id %}"><span class="authors-name">{{ tema.author.first_name }} {{ tema.author.last_name }}</span></a>
+                <span>{{ temas.date_create|time:'H:i a' }}</span>
+                <span>{{ temas.date_create|date:'d.m.Y' }}</span>
+                {% if tema.moder_state == 0 and user.is_authenticated %}
+                    {% if tema.complaint_quantity == 0 %}
+                        <form method="post">
+                            <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                   value="{{ user.id }}">
+                            <input type="hidden" name="comment" id="id_comment" value="{{ tema.id }}">
+                            <input type="hidden" name="tema_complaint_quantity" id="id_tema_complaint_quantity"
+                                   value="1">
+                            <button title="Отправить жалобу" type="submit" class="download-report">
+                                <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                                    <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </form>
+                    {% elif tema.complaint_quantity == 1 %}
+                        <form method="post">
+                            <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                   value="{{ user.id }}">
+                            <input type="hidden" name="comment" id="id_comment" value="{{ tema.id }}">
+                            <input type="hidden" name="tema_complaint_quantity" id="id_tema_complaint_quantity"
+                                   value="2">
+                            <button title="Отправить жалобу" type="submit" class="download-report">
+                                <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                                    <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </form>
+                    {% elif tema.complaint_quantity == 2 %}
+                        <form method="post">
+                            <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                   value="{{ user.id }}">
+                            <input type="hidden" name="comment" id="id_comment" value="{{ tema.id }}">
+                            <input type="hidden" name="tema_complaint_quantity" id="id_tema_complaint_quantity"
+                                   value="3">
+                            <button title="Отправить жалобу" type="submit" class="download-report">
+                                <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                                    <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+<div class="comments-left-by-users">
+    <div class="users-avatar-name-comment">
+        <div class="users-avatar"></div>
+        <div class="users-name-comment">
+            <div class="users-name">
+                <a href="">
+                        <span>
+                            Vladislav
+                        </span>
+                </a>
+                <span>21:49</span>
+                <span>29.05.2020</span>
+                <form method="post">
+                    <button title="Отправить жалобу" type="submit" class="reporting-comment">
+                        <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                            <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                            </path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <div class="users-comment">
+                    <span>
+                        Why so much?я понимаю, когда сайт падает. Я понимаю, когда перекашивает страницы. Я понимаю, когда плеер не работает. Но когда я захожу на сайт и оказываюсь залогиненным в чужом профиле -- этого я не понимаю
+                        я понимаю, когда сайт падает. Я понимаю, когда перекашивает страницы. Я понимаю, когда плеер не работает. Но когда я захожу на сайт и оказываюсь залогиненным в чужом профиле -- этого я не понимаю
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

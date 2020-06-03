@@ -37,6 +37,6 @@ class NewComment(models.Model):
         verbose_name_plural = 'Коментарии'
 
 
-class ComplaintGC(models.Model):
-    user_complaint = models.ForeignKey(User, verbose_name='Автор жалобы', on_delete=models.CASCADE)
+class ComplaintGCN(models.Model):
+    user_complaint = models.ForeignKey(User, verbose_name='Автор_ж_к_н', on_delete=models.CASCADE)
     comment = models.ForeignKey(NewComment, verbose_name='Коментарий', on_delete=models.CASCADE)

@@ -6,37 +6,42 @@
 
 {% block content %}
     <div class="links-at-forum-news">
-        <div class="invitation-in-the-forum">
-            <div class="forum-title-content-invitation">
+        <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
+                   href="{% url 'forums:forums' %}">
+            <div class="invitation-in-the-forum">
+                <div class="forum-title-content-invitation">
                 <span class="forum-title">
                     GSForum
                 </span>
-                <span class="content-invitation-forum">
+                    <span class="content-invitation-forum">
                     Оставляйте темы, делитесь мнением с другими, учавствуйте в обсуждениях.
                 </span>
-            </div>
-            <a href="">
+                </div>
+
                 <svg width="140" height="140" viewBox="0 0 24 24">
                     <path d="M9,7V17H11V13H14V11H11V9H15V7H9M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3Z"/>
                 </svg>
-            </a>
-        </div>
-        <div class="invitation-in-the-news">
-            <div class="news-title-content-invitation">
+
+            </div>
+        </a>
+        <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
+           href="{% url 'news:news_all' %}">
+            <div class="invitation-in-the-news">
+                <div class="news-title-content-invitation">
                 <span class="news-title">
                     GSNews
                 </span>
-                <span class="content-invitation-news">
+                    <span class="content-invitation-news">
                     Узнавайте о новинках в игровой индустрии.
                 </span>
-            </div>
-            <a class="{% if request.resolver_match.url_name == 'news' %}active{% endif %}"
-               href="{% url 'news:news_all' %}">
+                </div>
+
                 <svg width="140" height="140" viewBox="0 0 24 24">
                     <path d="M9,7V17H11V12L13,17H15V7H13V12L11,7H9M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3Z"/>
                 </svg>
-            </a>
-        </div>
+
+            </div>
+        </a>
     </div>
     <div class="content_top_ganr">
         <div class="container_games">
@@ -77,6 +82,8 @@
                             </a>
                         </div>
                     </div>
+                    {% empty %}
+                <div class="games-with-this-os-are-not-added">Игры с данной ОС не добавлены</div>
                 {% endfor %}
             </div>
         </div>

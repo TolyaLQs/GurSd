@@ -1,5 +1,5 @@
 import django.forms as forms
-from mainapp.models import Game, GameComment, ComplaintGC
+from mainapp.models import Game, GameComment, ComplaintGCG
 
 
 class GameForm(forms.ModelForm):
@@ -37,7 +37,7 @@ class ComplaintForm(forms.ModelForm):
 
 class ComplaintGCForm(forms.ModelForm):
     class Meta:
-        model = ComplaintGC
+        model = ComplaintGCG
         fields = ('user_complaint', 'comment',)
 
     def __init__(self, *args, **kwargs):

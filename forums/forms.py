@@ -26,7 +26,7 @@ class ForumsTemaForm(forms.ModelForm):
 
 class ForumsCommentForm(forms.ModelForm):
     class Meta:
-        model = ForumsTema
+        model = ForumsComment
         fields = ('avatar', 'text', 'author', 'forums')
 
     def __init__(self, *args, **kwargs):
@@ -38,7 +38,7 @@ class ForumsCommentForm(forms.ModelForm):
 class ComplaintTemaForm(forms.ModelForm):
     class Meta:
         model = ForumsTema
-        fields = ('com_complaint_quantity',)
+        fields = ('tema_complaint_quantity',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -23,9 +23,9 @@
         </div>
         <form method="post">
             {% csrf_token %}
-            <input type="text" placeholder="Введите email" name="email" required>
-            <input type="password" placeholder="Введите пароль" name="psw" required>
-            <button type="submit" class="btn-success">Войти</button>
+            <input class="input-email-mainapp-login" type="text" placeholder="Введите email" name="email" required>
+            <input class="input-password-mainapp-login" type="password" placeholder="Введите пароль" name="psw" required>
+            <button type="submit" class="btn-success sign_in">Войти</button>
         </form>
         <div class="forgot_remember">
             <div class="remember-me"><input type="checkbox" checked="checked" name="remember">
@@ -50,9 +50,9 @@
             <span>Регистрация</span>
         </div>
         <form method="post" class="register-form1">
-            <input type="text" placeholder="Введите имя" name="fname" required>
-            <input type="text" placeholder="Введите фамилия" name="lname" required>
-            <button type="submit" class="btn-success">Далее</button>
+            <input class="input-f_name-mainapp-login" type="text" placeholder="Введите имя" name="fname" required>
+            <input class="input-l_name-mainapp-login" type="text" placeholder="Введите фамилия" name="lname" required>
+            <button type="submit" class="btn-success onwards">Далее</button>
         </form>
     </div>
 </div>

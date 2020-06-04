@@ -418,6 +418,40 @@ body {
     font-weight: bold;
 }
 
+.game_name:hover{
+    color: dodgerblue;
+}
+
+.games-with-this-os-are-not-added{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 50px;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.game_name:hover{
+    color: dodgerblue;
+}
+
+.games-with-this-os-are-not-added{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 50px;
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
 .like_comment{
     display: flex;
     justify-content: space-between;
@@ -766,7 +800,7 @@ body {
 
 .author_comments{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 50px;
 }
@@ -893,7 +927,7 @@ body {
 
 .input_comment_label{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 700px;
     height: 40px;

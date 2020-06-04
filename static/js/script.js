@@ -1,16 +1,4 @@
 window.onload = function () {
-    let likeSvg = document.querySelector('.like_svg');
-    let like = document.querySelector('.like');
-
-    /*likeSvg.addEventListener('click', function (t) {
-        like = document.querySelector('.like');
-        like.style.fill = "red";
-    });*/
-
-    /*likeSvg.addEventListener('click', function (t) {
-        like = document.querySelector('.like');
-        like.style.fill = "black";
-    });*/
     trek1 = document.querySelector('.trek1');
     trek2 = document.querySelector('.trek2');
     trek3 = document.querySelector('.trek3');
@@ -64,13 +52,6 @@ window.onload = function () {
     });
 
 };
-
-function registration() {
-
-
-}
-
-
 function showFileName() {
     let fileName = document.getElementById('id_avatar');
     usersAvatar = document.querySelector('.users-avatar');

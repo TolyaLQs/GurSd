@@ -94,30 +94,80 @@
     outline: none;
 }
 
-/*input[type=text], input[type=password], input[type=email], input[type=number]{
-    width: 250px;
-    height: 30px;
-    padding-left: 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+.input-email-mainapp-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
     border-radius: 5px;
-    outline: none;
-}*/
-
-/*.btn-success{
-    background-color: #22A928;
-    border-radius: 5px;
-    width: 250px;
+    width: 245px;
     height: 30px;
-    font-family: 'Noto Sans', sans-serif;
+    padding: 5px;
     font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
     color: black;
     outline: none;
 }
-.btn-success:active{
+
+.input-email-mainapp-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 245px;
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    color: black;
     outline: none;
-}*/
+}
+
+.input-password-mainapp-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 245px;
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    color: black;
+    outline: none;
+}
+
+.input-f_name-mainapp-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 245px;
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    color: black;
+    outline: none;
+}
+
+.input-l_name-mainapp-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 245px;
+    height: 30px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    color: black;
+    outline: none;
+}
 
 .forgot_remember{
     display: flex;
@@ -207,12 +257,12 @@ input[type=checkbox]{
     font-family: 'Noto Sans', sans-serif;
     font-size: 15px;
     color: white;
-    outline: none;
 }
 
-.btn-success:active{
-    outline: none;
+.btn-success:hover{
+    cursor: pointer;
 }
+
 
 .or{
     display: flex;

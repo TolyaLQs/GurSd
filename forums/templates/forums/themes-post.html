@@ -12,15 +12,16 @@
             </span>
             </div>
             <div class="authors-name-date-time">
-                <a href="{% url 'auth:profile' tema.author.id %}"><span class="authors-name">{{ tema.author.first_name }} {{ tema.author.last_name }}</span></a>
+                <a href="{% url 'auth:profile' tema.author.id %}"><span
+                        class="authors-name">{{ tema.author.first_name }} {{ tema.author.last_name }}</span></a>
                 <span>{{ temas.date_create|time:'H:i a' }}</span>
                 <span>{{ temas.date_create|date:'d.m.Y' }}</span>
-                {% if tema.moder_state == 0 and user.is_authenticated %}
-                    {% if tema.complaint_quantity == 0 %}
+                {% if tema.tema_moder_state == 0 and user.is_authenticated %}
+                    {% if tema.tema_complaint_quantity == 0 %}
                         <form method="post">
                             <input type="hidden" name="user_complaint" id="id_user_complaint"
                                    value="{{ user.id }}">
-                            <input type="hidden" name="comment" id="id_comment" value="{{ tema.id }}">
+                            <input type="hidden" name="tema" id="id_tema" value="{{ tema.id }}">
                             <input type="hidden" name="tema_complaint_quantity" id="id_tema_complaint_quantity"
                                    value="1">
                             <button title="Отправить жалобу" type="submit" class="download-report">
@@ -30,11 +31,11 @@
                                 </svg>
                             </button>
                         </form>
-                    {% elif tema.complaint_quantity == 1 %}
+                    {% elif tema.tema_complaint_quantity == 1 %}
                         <form method="post">
                             <input type="hidden" name="user_complaint" id="id_user_complaint"
                                    value="{{ user.id }}">
-                            <input type="hidden" name="comment" id="id_comment" value="{{ tema.id }}">
+                            <input type="hidden" name="tema" id="id_tema" value="{{ tema.id }}">
                             <input type="hidden" name="tema_complaint_quantity" id="id_tema_complaint_quantity"
                                    value="2">
                             <button title="Отправить жалобу" type="submit" class="download-report">
@@ -44,11 +45,11 @@
                                 </svg>
                             </button>
                         </form>
-                    {% elif tema.complaint_quantity == 2 %}
+                    {% elif tema.tema_complaint_quantity == 2 %}
                         <form method="post">
                             <input type="hidden" name="user_complaint" id="id_user_complaint"
                                    value="{{ user.id }}">
-                            <input type="hidden" name="comment" id="id_comment" value="{{ tema.id }}">
+                            <input type="hidden" name="tema" id="id_tema" value="{{ tema.id }}">
                             <input type="hidden" name="tema_complaint_quantity" id="id_tema_complaint_quantity"
                                    value="3">
                             <button title="Отправить жалобу" type="submit" class="download-report">
@@ -64,35 +65,107 @@
         </div>
     {% endfor %}
 <div class="comments-left-by-users">
-    <div class="users-avatar-name-comment">
-        <div class="users-avatar"></div>
-        <div class="users-name-comment">
-            <div class="users-name">
-                <a href="">
+    {% for com in comment %}
+        <div class="users-avatar-name-comment">
+            <div class="users-avatar"><img src="{{ com.avatar.url }}"></div>
+            <div class="users-name-comment">
+                <div class="users-name">
+                    <a href="{% url 'auth:profile' com.author.id %}">
                         <span>
-                            Vladislav
+                            {{ com.author.last_name }} {{ com.author.first_name }}
                         </span>
-                </a>
-                <span>21:49</span>
-                <span>29.05.2020</span>
-                <form method="post">
-                    <button title="Отправить жалобу" type="submit" class="reporting-comment">
-                        <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
-                            <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
-                            </path>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-            <div class="users-comment">
+                    </a>
+                    <span>{{ n.date|time:'H:i a' }}</span>
+                    <span>{{ n.date|date:'d.m.Y' }}</span>
+                    {% if com.com_moder_state == 0 and user.is_authenticated %}
+                        {% if com.com_complaint_quantity == 0 %}
+                            <form method="post">
+                                <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                       value="{{ user.id }}">
+                                <input type="hidden" name="comment" id="id_comment" value="{{ com.id }}">
+                                <input type="hidden" name="com_complaint_quantity" id="id_com_complaint_quantity"
+                                       value="1">
+                                <button title="Отправить жалобу" type="submit" class="reporting-comment">
+                                    <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                                        <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </form>
+                        {% elif com.com_complaint_quantity == 1 %}
+                            <form method="post">
+                                <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                       value="{{ user.id }}">
+                                <input type="hidden" name="comment" id="id_comment" value="{{ com.id }}">
+                                <input type="hidden" name="com_complaint_quantity" id="id_com_complaint_quantity"
+                                       value="2">
+                                <button title="Отправить жалобу" type="submit" class="reporting-comment">
+                                    <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                                        <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </form>
+                        {% elif tema.com_complaint_quantity == 2 %}
+                            <form method="post">
+                                <input type="hidden" name="user_complaint" id="id_user_complaint"
+                                       value="{{ user.id }}">
+                                <input type="hidden" name="comment" id="id_comment" value="{{ com.id }}">
+                                <input type="hidden" name="com_complaint_quantity" id="id_com_complaint_quantity"
+                                       value="3">
+                                <button title="Отправить жалобу" type="submit" class="reporting-comment">
+                                    <svg fill="orangered" width="25" height="25" viewBox="0.5 2 22 20">
+                                        <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="users-comment">
                     <span>
-                        Why so much?я понимаю, когда сайт падает. Я понимаю, когда перекашивает страницы. Я понимаю, когда плеер не работает. Но когда я захожу на сайт и оказываюсь залогиненным в чужом профиле -- этого я не понимаю
-                        я понимаю, когда сайт падает. Я понимаю, когда перекашивает страницы. Я понимаю, когда плеер не работает. Но когда я захожу на сайт и оказываюсь залогиненным в чужом профиле -- этого я не понимаю
+                    {{ com.text }}
                     </span>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
+    {% empty %}
+        <div>Напиши первый комментарий</div>
+    {% endfor %}
+        <div class="news-comment-input">
+            {% if user.is_authenticated %}
+            <form class="news-form_comment" method="post">
 
+                <label class="news-input_comment_label" for="id_avatar">
+                    <svg fill="black" width="20px" height="20px" viewBox="0 0 612.675 612.675">
+                        <title>Выберите файл</title>
+                        <path d="M581.209,223.007L269.839,530.92c-51.592,51.024-135.247,51.024-186.839,0c-51.592-51.023-51.592-133.737,0-184.761
+                            L363.248,69.04c34.402-34.009,90.15-34.009,124.553,0c34.402,34.008,34.402,89.166,0,123.174l-280.249,277.12
+                            c-17.19,17.016-45.075,17.016-62.287,0c-17.19-16.993-17.19-44.571,0-61.587L394.37,161.42l-31.144-30.793L114.144,376.975
+                            c-34.402,34.009-34.402,89.166,0,123.174c34.402,34.009,90.15,34.009,124.552,0l280.249-277.12
+                            c51.592-51.023,51.592-133.737,0-184.761c-51.593-51.023-135.247-51.023-186.839,0L36.285,330.784l1.072,1.071
+                            c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
+                            L581.209,223.007z"/>
+                    </svg>
+                    <input type="file" name="avatar" accept="image/*"
+                           id="id_avatar" class="news-input-photo"
+                           onchange="showFileName()"/>
+                    <input class="news-text_field_comment" title="Напишите комментарий" type="text"
+                           placeholder="Напишите комментарий" name="text" id="id_text">
+                    <input type="hidden" name="author" id="id_author" value="{{ user.id }}">
+                            <input type="hidden" name="forums" id="id_forums" value="{{ forum }}">
+                </label>
+                <button type="submit" class="news-download-comments" title="Отправить">
+                    <svg fill="black" width="25" height="25" viewBox="0 0 32 32">
+                        <path d="M19.47,31a2,2,0,0,1-1.8-1.09l-4-7.57a1,1,0,0,1,1.77-.93l4,7.57L29,3.06,3,12.49l9.8,5.26,8.32-8.32a1,1,0,0,1,1.42,1.42l-8.85,8.84a1,1,0,0,1-1.17.18L2.09,14.33a2,2,0,0,1,.25-3.72L28.25,1.13a2,2,0,0,1,2.62,2.62L21.39,29.66A2,2,0,0,1,19.61,31Z"/>
+                    </svg>
+                </button>
+            </form>
+                {% else %}
+                <div>Войдите в аккаунт что бы написать коментарий. <a href="{% url 'login' %}"> Войти</a></div>
+            {% endif %}
+        </div>
+</div>
+</div>
 {% endblock %}

@@ -2,10 +2,21 @@ import django.forms as forms
 from forums.models import ForumsRazdel, ForumsTema, ForumsComment, ComplaintGCF
 
 
-class ForumsTema(forms.ModelForm):
+class ForumsRazdelForm(forms.ModelForm):
     class Meta:
         model = ForumsRazdel
-        fields = '__all__'
+        fields = ('name_game',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+
+class ForumsTemaForm(forms.ModelForm):
+    class Meta:
+        model = ForumsTema
+        fields = ('razdel', 'name', 'author', 'text', 'photo')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -15,7 +26,7 @@ class ForumsTema(forms.ModelForm):
 
 class ForumsCommentForm(forms.ModelForm):
     class Meta:
-        model = ForumsComment
+        model = ForumsTema
         fields = ('avatar', 'text', 'author', 'forums')
 
     def __init__(self, *args, **kwargs):
@@ -24,7 +35,18 @@ class ForumsCommentForm(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
 
-class ComplaintForm(forms.ModelForm):
+class ComplaintTemaForm(forms.ModelForm):
+    class Meta:
+        model = ForumsTema
+        fields = ('com_complaint_quantity',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+
+class ComplaintCommentForm(forms.ModelForm):
     class Meta:
         model = ForumsComment
         fields = ('com_complaint_quantity',)

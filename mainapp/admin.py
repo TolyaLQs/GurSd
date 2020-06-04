@@ -4,7 +4,7 @@ from mainapp.models import Game, Genre, GameComment, UserGame, ComplaintGCG, Tag
 
 class GameAdmin(admin.ModelAdmin):
 
-    list_display = ('name','avatar_tag',
+    list_display = ('name', 'avatar_tag',
                     'genre_name',
                     'active',
 
@@ -25,8 +25,7 @@ class GameAdmin(admin.ModelAdmin):
     )
 
 
-
-admin.site.register(Game,GameAdmin)
+admin.site.register(Game, GameAdmin)
 admin.site.register(GameComment)
 admin.site.register(Genre)
 admin.site.register(UserGame)

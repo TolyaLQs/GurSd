@@ -58,6 +58,9 @@
                 <div class="game_name_description">
                     <div class="description">
                         <div class="game-name">
+                            {% comment %}<svg class="like" fill="black" height="25px" width="25px" viewBox="0 0 512 512">
+                                <path d="M365.4,59.628c60.56,0,109.6,49.03,109.6,109.47c0,109.47-109.6,171.8-219.06,281.271    C146.47,340.898,37,278.568,37,169.099c0-60.44,49.04-109.47,109.47-109.47c54.73,0,82.1,27.37,109.47,82.1    C283.3,86.999,310.67,59.628,365.4,59.628z"/>
+                            </svg>{% endcomment %}
                             {{ object.name }}
                         </div>
                         <span>Описание:</span> <br>
@@ -154,12 +157,12 @@
                             <input type="file" name="avatar" accept="image/*"
                                    id="id_avatar" class="input-avatar"
                                    onchange="showFileName()"/>
-                            <input class="text_field_comment" name="text" id="id_text" type="text"
+                            <input title="Используем пальцы" class="text_field_comment" name="text" id="id_text" type="text"
                                    placeholder="Напишите комментарий">
                             <input type="hidden" name="author" id="id_author" value="{{ user.id }}">
                             <input type="hidden" name="game_name" id="ig_game_name" value="{{ name }}">
                         </label>
-                        <button type="submit" class="download_comments_photo">
+                        <button type="submit" class="download_comments_photo" title="Отправить">
                             <svg fill="black" width="25" height="25" viewBox="0 0 32 32">
                                 <path d="M19.47,31a2,2,0,0,1-1.8-1.09l-4-7.57a1,1,0,0,1,1.77-.93l4,7.57L29,3.06,3,12.49l9.8,5.26,8.32-8.32a1,1,0,0,1,1.42,1.42l-8.85,8.84a1,1,0,0,1-1.17.18L2.09,14.33a2,2,0,0,1,.25-3.72L28.25,1.13a2,2,0,0,1,2.62,2.62L21.39,29.66A2,2,0,0,1,19.61,31Z"/>
                             </svg>

@@ -1,6 +1,6 @@
 {% extends 'authapp/base.html' %}
 {% block title %}
-<title>GurSd</title>
+<title>GS</title>
 {% endblock %}
 
 {% block content %}
@@ -14,22 +14,16 @@
                 </svg>
                 <span>Вход</span>
             </div>
-            <a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">
-                <svg width="20px" height="20px" viewBox="0 0 459 459">
-                    <title>Вернуться на главную</title>
-                    <path d="M178.5,140.25v-102L0,216.75l178.5,178.5V290.7c127.5,0,216.75,40.8,280.5,130.05C433.5,293.25,357,165.75,178.5,140.25z"/>
-                </svg>
-            </a>
         </div>
         <form method="post">
             {% csrf_token %}
-            <input type="text" placeholder="Введите email" name="email" required>
-            <input type="password" placeholder="Введите пароль" name="psw" required>
+            <input class="input-email-mainapp-login" type="text" placeholder="Введите email" name="email" required>
+            <input class="input-email-mainapp-login" type="password" placeholder="Введите пароль" name="psw" required>
             <button type="submit" class="btn-success">Войти</button>
         </form>
         <div class="forgot_remember">
             <div class="remember-me"><input type="checkbox" checked="checked" name="remember">
-                <span>запомнить</span>
+                <span>Запомнить</span>
             </div>
             <span class="forgot_password">Забыли <a href="#">пароль?</a></span>
         </div>
@@ -50,8 +44,8 @@
             <span>Регистрация</span>
         </div>
         <form method="post" class="register-form1">
-            <input type="text" placeholder="Введите имя" name="fname" required>
-            <input type="text" placeholder="Введите фамилия" name="lname" required>
+            <input class="input-f_name-mainapp-login"type="text" placeholder="Введите имя" name="fname" required>
+            <input class="input-l_name-mainapp-login"type="text" placeholder="Введите фамилия" name="lname" required>
             <button type="submit" class="btn-success">Далее</button>
         </form>
     </div>

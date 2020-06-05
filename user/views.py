@@ -39,7 +39,7 @@ def user_login(request):
             request.session['lname'] = last_name
             return HttpResponseRedirect(reverse('auth:register'))
 
-    return render(request, 'mainapp/login.html')
+    return render(request, 'authapp/login.html')
 
 
 def user_logout(request):
@@ -78,7 +78,7 @@ def user_register(request):
         'lname': lname,
     }
 
-    return render(request, 'mainapp/register.html', context)
+    return render(request, 'authapp/register.html', context)
 
 
 def user_edit(request):

@@ -19,9 +19,9 @@
 
 .enter_svg_back{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 245px;
     height: 50px;
 }
 
@@ -91,21 +91,6 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 5px;
-    outline: none;
-}
-
-.input-email-mainapp-login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 245px;
-    height: 30px;
-    padding: 5px;
-    font-size: 15px;
-    font-family: 'Noto Sans', sans-serif;
-    color: black;
     outline: none;
 }
 
@@ -311,6 +296,10 @@ input[type=checkbox]{
     border-radius: 5px;
 }
 
+.form-control{
+    border: black 1px solid;
+}
+
 .form-step_2{
     display: flex;
     justify-content: space-around;
@@ -327,7 +316,12 @@ input[type=checkbox]{
     height: 40px;
 }
 
-.btn {
+.container-btn-back-step2 svg:hover{
+    cursor: pointer;
+    fill: dodgerblue;
+}
+
+.btn1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -389,6 +383,10 @@ input[type=checkbox]{
     color: black;
     font-family: 'Lato', sans-serif;
     margin-left: 30px;
+}
+
+.input-avatar_label svg:hover{
+    fill: dodgerblue;
 }
 
 .input-avatar{

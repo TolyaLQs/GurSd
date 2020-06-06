@@ -11,16 +11,17 @@
                 <div class="game_photo_info">
                     <div class="game-img">
                         <img src="/media/{{ object.photo }}">
+                        <span class="object_name_320px">{{ object.name }}</span>
                     </div>
                     <div class="game-info">
-                        <div class="game-genre">Жанр:
+                        <div class="game-genre game-info-ganre-oc">Жанр:
                             <a class="{% if request.resolver_match.url_name == 'ganre' %}active{% endif %}"
                                href="{% url 'ganre' object.genre_name %}">
                                 {{ object.genre_name }}
                             </a>
                         </div>
-                        <div> Тег: {{ tags.all|join:", " }} </div>
-                        <div class="game-os">ОС: {% if object.android %}
+                        {% comment %}<div> Тег: {{ tags.all|join:", " }} </div>{% endcomment %}
+                        <div class="game-os game-info-ganre-oc">ОС: {% if object.android %}
                             <span>Android</span>
                         {% elif object.ios %}
                             <span>iOS</span>
@@ -34,19 +35,19 @@
 
                         {% endif %}
                         </div>
-                        <div class="game-language">Русский язык: {% if object.language %}
+                        <div class="game-language game-info-ganre-oc">Русский язык: {% if object.language %}
                             <span>Присутствует</span>
                         {% else %}
                             <span>Отсутствует</span>
                         {% endif %}
                         </div>
-                        <div class="game-paidContent">Платный контент: {% if object.language %}
+                        <div class="game-paidContent game-info-ganre-oc">Платный контент: {% if object.language %}
                             <span>Присутствует</span>
                         {% else %}
                             <span>Отсутствует</span>
                         {% endif %}
                         </div>
-                        <div class="game-advertising">Реклама: {% if object.language %}
+                        <div class="game-advertising game-info-ganre-oc">Реклама: {% if object.language %}
                             <span>Присутствует</span>
                         {% else %}
                             <span>Отсутствует</span>

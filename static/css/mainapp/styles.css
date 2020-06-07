@@ -2,11 +2,11 @@
 
 @media screen and (max-width: 2000px) and (min-width: 1100px) {
 
-    .menu_svg_320px{
+    .menu_svg_320px {
         display: none;
     }
 
-    .pop_up_window_320px{
+    .pop_up_window_320px {
         display: none;
     }
 
@@ -933,22 +933,22 @@
         outline: none;
     }
 
-    .object_name_320px{
+    .object_name_320px {
         display: none;
     }
 }
 
 @media screen and (max-width: 1099px) and (min-width: 765px) {
 
-    .object_name_320px{
+    .object_name_320px {
         display: none;
     }
 
-    .menu_svg_320px{
+    .menu_svg_320px {
         display: none;
     }
 
-    .pop_up_window_320px{
+    .pop_up_window_320px {
         display: none;
     }
 
@@ -1005,7 +1005,7 @@
         width: 250px;
     }
 
-    .os svg{
+    .os svg {
         width: 25px;
         height: 25px;
     }
@@ -1018,7 +1018,7 @@
         margin-right: 10px;
     }
 
-    .topuser svg{
+    .topuser svg {
         width: 25px;
         height: 25px;
     }
@@ -1935,25 +1935,27 @@
         letter-spacing: 2px;
     }
 
-    .menu_svg_320px{
+    .menu_svg_320px {
 
     }
 
-    .pop_up_window_320px{
+    .pop_up_window_320px {
         display: flex;
         justify-content: start;
         align-items: center;
         flex-direction: column;
         width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.9);
         z-index: 2000;
         position: absolute;
         top: 0;
         left: 0;
     }
 
-    .menu_logotype_quit{
+    .pop_up_window_320px a {
+        text-decoration: none;
+    }
+
+    .menu_logotype_quit {
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -1961,20 +1963,25 @@
         height: 50px;
         padding: 0 10px;
         background-color: black;
+        margin-bottom: 15px;
     }
 
-    .photo_name_user_320px{
+    .photo_name_user_a_320px {
+        width: 80%;
+    }
+
+    .photo_name_user_320px {
         display: flex;
-        justify-content: left;
+        justify-content: space-around;
         align-items: center;
-        width: 95%;
+        width: 100%;
         background-color: white;
         border-radius: 5px;
         padding: 10px;
-        margin: 10px 10px;
+        margin: 0 0 10px 0;
     }
 
-    .photo_user_320px{
+    .photo_user_320px {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1983,10 +1990,121 @@
         border-radius: 50%;
     }
 
-    .photo_user_320px img{
+    .photo_user_320px img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
+    }
+
+    .name_user_320px {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        color: black;
+    }
+
+    .os_list_320px {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        width: 80%;
+        padding: 15px 10px 0 10px;
+        background-color: white;
+        border-radius: 5px;
+    }
+
+    .os_list_320px a {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        text-decoration: none;
+        color: black;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 20px 10px;
+    }
+
+    .os_list_320px a svg {
+        margin-right: 20px;
+    }
+
+    .xbox_320px svg{
+        margin-left: -5px;
+    }
+
+    .xbox_320px span{
+        margin-left: -5px;
+    }
+
+    .moderators_list_320px{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        width: 80%;
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px 0 10px 15px;
+        margin: 10px 0 0 0;
+    }
+
+    .moderators_list_320px a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+    }
+
+    .moderators_list_320px a span{
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+    }
+
+    .moderators_list_320px a svg{
+        margin-right: 15px;
+    }
+
+    .game_complaint{
+        margin-top: 5px;
+    }
+
+    .users_exit_320px{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 50px;
+        background-color: white;
+        border-radius: 5px;
+        margin: 10px 0 16px 0;
+    }
+
+    .users_exit_320px a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .users_exit_320px a span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 50px;
+        background-color: white;
+        border-radius: 5px;
     }
 
     .os {
@@ -2191,9 +2309,9 @@
 
     .new_games_android {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
-        width: 690px;
+        width: 95%;
         height: 30px;
         margin: 20px 0 10px 0;
         color: black;
@@ -2209,9 +2327,9 @@
 
     .new_games_ios {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
-        width: 690px;
+        width: 95%;
         height: 30px;
         margin: 20px 0 10px 0;
         color: black;
@@ -2227,9 +2345,9 @@
 
     .new_games_windows {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
-        width: 690px;
+        width: 95%;
         height: 30px;
         margin: 20px 0 10px 0;
         color: black;
@@ -2245,9 +2363,9 @@
 
     .new_games_xbox {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
-        width: 690px;
+        width: 95%;
         height: 30px;
         margin: 20px 0 10px 0;
         color: black;
@@ -2263,9 +2381,9 @@
 
     .new_games_psp {
         display: flex;
-        justify-content: start;
+       justify-content: center;
         align-items: center;
-        width: 690px;
+        width: 95%;
         height: 30px;
         margin: 20px 0 10px 0;
         color: black;
@@ -2573,11 +2691,11 @@
         margin-bottom: 10px;
     }
 
-    .game-info-ganre-oc{
+    .game-info-ganre-oc {
         font-weight: bold;
     }
 
-    .game-info-ganre-oc a, .game-info-ganre-oc span{
+    .game-info-ganre-oc a, .game-info-ganre-oc span {
         font-weight: normal;
     }
 
@@ -2672,11 +2790,11 @@
     .game-img img {
         width: 280px;
         height: 350px;
-        border-radius: 5px 5px 0 0 ;
+        border-radius: 5px 5px 0 0;
         border: black solid 1px;
     }
 
-    .object_name_320px{
+    .object_name_320px {
         display: flex;
         justify-content: center;
         align-items: center;

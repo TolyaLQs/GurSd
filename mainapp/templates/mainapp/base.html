@@ -76,7 +76,7 @@
             </svg>
         </div>
 
-        <div class="pop_up_window_320px">
+        <div class="pop_up_window_320px" style="display: none">
 
             <div class="menu_logotype_quit">
                 <svg fill="white" width="25" height="25" viewBox="0 0 612.043 612.043">
@@ -87,26 +87,27 @@
                 </svg>
             </div>
 
-                <div class="photo_name_user_320px">
-                    {% if user.avatar %}
-                        <div class="photo_user_320px">
-                            <img src="{{ user.avatar.url }}" id="user_avatar">
-                        </div>
-                    {% endif %}
+            {% if user.is_authenticated %}
+                <a class="photo_name_user_a_320px" href="{% url 'auth:profile' user.id %}">
+                    <div class="photo_name_user_320px">
+                        {% if user.avatar %}
+                            <div class="photo_user_320px">
+                                <img src="{{ user.avatar.url }}" id="user_avatar">
+                            </div>
+                        {% endif %}
 
-                    {% if user.is_authenticated %}
                         <div class="name_user_320px">
-                            <a href="{% url 'auth:profile' user.id %}">
-                                {{ user.first_name|truncatechars:10 | default:"пользователь" }}
-                            </a>
+                            {{ user.first_name|truncatechars:10 | default:"пользователь" }}
                         </div>
-                    {% endif %}
-                </div>
+
+                    </div>
+                </a>
+            {% endif %}
 
             <div class="os_list_320px">
                 <a class="{% if request.resolver_match.url_name == 'android' %}active{% endif %}"
                    href="{% url 'android' %}">
-                    <svg id="android" viewBox="0 0 19 10.188" width="40px" height="40px" fill="green">
+                    <svg id="android" viewBox="0 0 19 10.188" width="30px" height="30px" fill="green">
                         <title>Android</title>
                         <path d="M14.303 3.057c2.209.999 4.393 3.015 4.709 7.123H-.006s.037-4.986 4.592-7.121L2.914.527A.333.333 0 1 1 3.47.159l1.736 2.629c1.129-.424 2.492-.69 4.164-.69 0 0 2.077-.125 4.307.699L15.418.159a.333.333 0 1 1 .557.368l-1.672 2.53zM5.411 5.153c-.594 0-1.075.502-1.075 1.122 0 .619.481 1.121 1.075 1.121s1.076-.502 1.076-1.121c0-.62-.482-1.122-1.076-1.122zm8.194 0c-.588 0-1.065.498-1.065 1.111s.477 1.111 1.065 1.111 1.066-.498 1.066-1.111-.478-1.111-1.066-1.111z">
                         </path>
@@ -131,7 +132,7 @@
                     </svg>
                     <span>Windows</span>
                 </a>
-                <a class="{% if request.resolver_match.url_name == 'xbox' %}active{% endif %}"
+                <a class="xbox_320px {% if request.resolver_match.url_name == 'xbox' %}active{% endif %}"
                    href="{% url 'xbox' %}">
                     <svg fill="green" width="40px" height="40px" viewBox="0 0 575.568 575.568">
                         <title>Xbox</title>
@@ -144,7 +145,7 @@
                 </a>
                 <a class="{% if request.resolver_match.url_name == 'psp' %}active{% endif %}"
                    href="{% url 'psp' %}">
-                    <svg id="psp" viewBox="0 0 15 9.31" width="30px" height="30px" fill="rgb(255,255,255)">
+                    <svg id="psp" viewBox="0 0 15 9.31" width="30px" height="30px" fill="black">
                         <title>PSP</title>
                         <path d="M.031.03L0 1.999h13V4.03H0v5h2v-3h13V-.002L.031.03z">
                         </path>
@@ -153,21 +154,42 @@
                 </a>
             </div>
 
-            <div class="moderators_list_320px">
-                {% if user.moderator %}
+            {% if user.moderator %}
+                <div class="moderators_list_320px">
                     <a href="">
-                        <span class="add_new_game">Добавить игру</span>
-                        <svg fill="black" width="30" height="" viewBox="0 0 32 32">
+                        <svg fill="black" width="40" height="40" viewBox="0 0 32 32">
                             <path d="M16,29A13,13,0,1,1,29,16,13,13,0,0,1,16,29ZM16,5A11,11,0,1,0,27,16,11,11,0,0,0,16,5Z"/>
                             <path d="M16,23a1,1,0,0,1-1-1V10a1,1,0,0,1,2,0V22A1,1,0,0,1,16,23Z"/>
                             <path d="M22,17H10a1,1,0,0,1,0-2H22a1,1,0,0,1,0,2Z"/>
                         </svg>
+                        <span class="add_new_game">Добавить игру</span>
                     </a>
                     <a href="">
+                        <svg fill="orange" width="40" height="40" viewBox="0 0 22 18">
+                            <path d="M2.73,21 L21.26,21 C22.03,21 22.51,20.17 22.13,19.5 L12.86,3.5 C12.47,2.83 11.51,2.83 11.13,3.5 L1.86,19.5 C1.48,20.17 1.96,21 2.73,21 Z M13,18 L11,18 L11,16 L13,16 L13,18 Z M12,14 C11.45,14 11,13.55 11,13 L11,11 C11,10.45 11.45,10 12,10 C12.55,10 13,10.45 13,11 L13,13 C13,13.55 12.55,14 12,14 Z"></path>
+                        </svg>
                         <span class="game_complaint">Жалоб: 1K</span>
                     </a>
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+
+                <div class="users_exit_320px">
+                    <a href="{% url 'auth:logout' %}">
+                        <span>Выйти</span>
+                    </a>
+                </div>
+
+            {% else %}
+
+                <div class="users_exit_320px">
+                    <a href="{% url 'auth:login' %}">
+                        <span>Войти</span>
+                    </a>
+                </div>
+
+            {% endif %}
         </div>
 
         <div class="topuser">
@@ -222,6 +244,7 @@
 {% block js %}
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script src="/static/js/script.js"></script>
+    <script src="/static/js/mainapp/menu_320px.js"></script>
 {% endblock %}
 
 </body>

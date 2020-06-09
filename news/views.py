@@ -1,5 +1,6 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
+from django.urls import reverse
 from news.forms import NewCommentForm, ComplaintForm, ComplaintGCForm
 from news.models import New, NewComment
 
@@ -45,20 +46,23 @@ def new(request, n=None):
     if request.method == 'POST':
         if 'text' in request.POST and request.POST['text']:
             add_comment = NewCommentForm(request.POST, request.FILES)
-            print('1')
             if add_comment.is_valid():
-                print('2')
                 add_comment.save()
-                print('3')
-                if n:
-                    new = New.objects.filter(id=n)
-                    comment = NewComment.objects.filter(new_name=n)
-                    context = {
-                        'new': new,
-                        'comment': comment,
-                        'n': n,
-                    }
-                    return render(request, 'news/full-information-page-news.html', context)
+                comment = NewComment.objects.filter(new_name=n)
+                i = 0
+                for comm in comment:
+                    comm.id
+                    i = i + 1
+                return HttpResponseRedirect(f'/news/new/{n}/#id_comm{i}')
+                # if n:
+                #     new = New.objects.filter(id=n)
+                #     comment = NewComment.objects.filter(new_name=n)
+                #     context = {
+                #         'new': new,
+                #         'comment': comment,
+                #         'n': n,
+                #     }
+                #     return render(request, 'news/full-information-page-news.html', context)
 
     if 'complaint_quantity' in request.POST and request.POST['complaint_quantity']:
         id = request.POST['comment']

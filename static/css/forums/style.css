@@ -743,17 +743,16 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 55px;
         background-color: black;
-        position: fixed;
     }
 
     .block-site-menu .site-menu {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
-        height: 100px;
+        width: 90%;
+        height: 50px;
+        padding: 10px;
     }
 
     .block-site-menu .site-menu .site-logotype {
@@ -767,8 +766,11 @@
     }
 
     .block-site-menu .site-menu .site-logotype a span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-family: 'Dancing Script', cursive;
-        font-size: 30px;
+        font-size: 40px;
         letter-spacing: 2px;
         color: white;
     }
@@ -797,8 +799,8 @@
         justify-content: center;
         align-items: center;
         width: 300px;
-        height: 30px;
-        border: white solid 2px;
+        height: 40px;
+        background-color: white;
         border-radius: 5px;
     }
 
@@ -807,21 +809,20 @@
         justify-content: space-between;
         align-items: center;
         width: 300px;
-        height: 30px;
-        background-color: white;
+        height: 40px;
     }
 
     .block-site-menu .site-menu .forums-menu-search .input-search-in-menu {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 265px;
-        height: 28px;
+        width: 260px;
+        height: 33px;
         border: none;
         background-color: white;
         outline: none;
         font-family: 'Noto Sans', sans-serif;
-        font-size: 15px;
+        font-size: 19px;
         color: black;
         padding-left: 5px;
     }
@@ -830,10 +831,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         border: none;
-        background-color: white;
         outline: none;
         margin-right: 5px;
     }
@@ -895,12 +895,26 @@
         margin-left: auto;
     }
 
+    .menu_svg_320px{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu_svg_320px svg{
+        width: 50px;
+        height: 50px;
+    }
+
     .forums-gs-and-recently-added {
         display: flex;
-        justify-content: space-between;
-        align-items: start;
-        width: 1100px;
-        margin: 70px 0 20px 0;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
     }
 
     .forums-gs-and-recently-added .forums-gs {
@@ -909,18 +923,19 @@
         align-items: center;
         flex-direction: column;
         border-radius: 5px;
-        width: 700px;
+        width: 95%;
         background-color: white;
+        margin-bottom: 10px;
     }
 
-    .forums-gs-and-recently-added .forums-gs span {
+    .forums-gs-and-recently-added .forums-gs .forums_320px {
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 620px;
+        width: 95%;
         height: 70px;
         font-family: 'Noto Sans', sans-serif;
-        font-size: 17px;
+        font-size: 23px;
         font-weight: bold;
         color: black;
     }
@@ -942,20 +957,17 @@
         justify-content: start;
         align-items: center;
         flex-direction: column;
-        width: 650px;
+        width: 95%;
         border: black solid 1px;
         border-radius: 5px;
         margin-bottom: 20px;
-        padding-bottom: 10px;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks {
         display: flex;
         justify-content: space-between;
-        align-items: start;
-        width: 620px;
-        height: 50px;
-        border-bottom: black solid 1px;
+        align-items: center;
+        width: 95%;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks a {
@@ -966,16 +978,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 300px;
-        height: 50px;
+        height: 70px;
         font-family: 'Noto Sans', sans-serif;
-        font-size: 15px;
-        color: black;
-        margin-top: 0;
-        margin-left: 10px;
-    }
-
-    .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks span:hover {
+        font-size: 20px;
+        font-weight: bold;
         color: dodgerblue;
     }
 
@@ -983,19 +989,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 230px;
-        height: 50px;
-        margin-right: 10px;
+        width: 250px;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks .quantity-themes-asks span {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100px;
-        height: 30px;
+        height: 70px;
         font-family: 'Noto Sans', sans-serif;
-        font-size: 15px;
+        font-size: 20px;
+        font-weight: bold;
         color: black;
     }
 
@@ -1005,8 +1009,9 @@
         align-items: center;
         flex-direction: column;
         border-radius: 5px;
-        width: 350px;
+        width: 95%;
         background-color: white;
+        margin-bottom: 10px;
     }
 
     .forums-gs-and-recently-added .recently-added-themes .themes-not-added {
@@ -1025,10 +1030,10 @@
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 280px;
+        width: 95%;
         height: 70px;
         font-family: 'Noto Sans', sans-serif;
-        font-size: 17px;
+        font-size: 23px;
         font-weight: bold;
         color: black;
     }
@@ -1038,20 +1043,18 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        width: 300px;
+        width: 95%;
         border: black solid 1px;
         border-radius: 5px;
         margin-bottom: 20px;
-        padding-bottom: 10px;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 280px;
-        height: 50px;
-        border-bottom: black solid 1px;
+        width: 95%;
+        height: 70px;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme a {
@@ -1063,13 +1066,11 @@
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 200px;
-        height: 50px;
+        height: 70px;
         font-family: 'Noto Sans', sans-serif;
         font-weight: bold;
-        font-size: 15px;
-        color: black;
-        margin-left: 10px;
+        font-size: 20px;
+        color: dodgerblue;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme a .recently-added-theme:hover {
@@ -1080,11 +1081,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50px;
-        height: 50px;
+        height: 70px;
         font-family: 'Noto Sans', sans-serif;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 20px;
         color: black;
     }
 
@@ -1473,8 +1473,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%;
+        width: 90%;
         height: 50px;
+        padding: 0 20px;
     }
 
     .block-site-menu .site-menu .site-logotype {
@@ -1489,7 +1490,7 @@
 
     .block-site-menu .site-menu .site-logotype a span {
         font-family: 'Dancing Script', cursive;
-        font-size: 25px;
+        font-size: 27px;
         color: white;
     }
 
@@ -1517,9 +1518,9 @@
         justify-content: space-between;
         align-items: center;
         width: 130px;
-        height: 25px;
-        border: white solid 1px;
-        border-radius: 5px;
+        height: 30px;
+        background-color: white;
+        border-radius: 3px;
     }
 
     .block-site-menu .site-menu .forums-menu-search form {
@@ -1527,35 +1528,46 @@
         justify-content: space-between;
         align-items: center;
         width: 130px;
-        height: 25px;
-        background-color: white;
+        height: 30px;
     }
 
     .block-site-menu .site-menu .forums-menu-search .input-search-in-menu {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 90px;
-        height: 20px;
+        width: 100px;
+        height: 25px;
         border: none;
-        background-color: white;
         outline: none;
         font-family: 'Noto Sans', sans-serif;
         font-size: 15px;
         color: black;
         padding-left: 5px;
+        border-radius: 5px;
     }
 
     .block-site-menu .site-menu .forums-menu-search svg {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
         border: none;
-        background-color: white;
         outline: none;
         margin-right: 5px;
+    }
+
+    .menu_svg_320px{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu_svg_320px svg{
+        width: 60px;
+        height: 60px;
     }
 
     .block-site-menu .site-menu .photo-username-login-logout {
@@ -1617,10 +1629,11 @@
 
     .forums-gs-and-recently-added {
         display: flex;
-        justify-content: space-between;
-        align-items: start;
-        width: 1100px;
-        margin: 70px 0 20px 0;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        width: 95%;
+        margin-top: 10px;
     }
 
     .forums-gs-and-recently-added .forums-gs {
@@ -1629,16 +1642,17 @@
         align-items: center;
         flex-direction: column;
         border-radius: 5px;
-        width: 700px;
+        width: 95%;
         background-color: white;
+        margin-bottom: 10px;
     }
 
-    .forums-gs-and-recently-added .forums-gs span {
+    .forums-gs-and-recently-added .forums-gs .forums_320px {
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 620px;
-        height: 70px;
+        width: 95%;
+        height: 50px;
         font-family: 'Noto Sans', sans-serif;
         font-size: 17px;
         font-weight: bold;
@@ -1659,40 +1673,36 @@
 
     .forums-gs-and-recently-added .forums-gs .themes-forum {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 650px;
+        width: 95%;
         border: black solid 1px;
         border-radius: 5px;
         margin-bottom: 20px;
-        padding-bottom: 10px;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks {
         display: flex;
         justify-content: space-between;
-        align-items: start;
-        width: 620px;
+        align-items: center;
+        width: 90%;
         height: 50px;
-        border-bottom: black solid 1px;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks a {
         text-decoration: none;
+        color: dodgerblue;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks a span {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        width: 300px;
-        height: 50px;
         font-family: 'Noto Sans', sans-serif;
         font-size: 15px;
-        color: black;
-        margin-top: 0;
-        margin-left: 10px;
+        font-weight: bold;
+        color: dodgerblue;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks span:hover {
@@ -1703,19 +1713,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 230px;
+        width: 160px;
         height: 50px;
-        margin-right: 10px;
     }
 
     .forums-gs-and-recently-added .forums-gs .themes-forum .named-themes-quantity-themes-asks .quantity-themes-asks span {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100px;
-        height: 30px;
         font-family: 'Noto Sans', sans-serif;
         font-size: 15px;
+        font-weight: bold;
         color: black;
     }
 
@@ -1725,8 +1733,9 @@
         align-items: center;
         flex-direction: column;
         border-radius: 5px;
-        width: 350px;
+        width: 95%;
         background-color: white;
+        margin-bottom: 10px;
     }
 
     .forums-gs-and-recently-added .recently-added-themes .themes-not-added {
@@ -1745,8 +1754,8 @@
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 280px;
-        height: 70px;
+        width: 95%;
+        height: 50px;
         font-family: 'Noto Sans', sans-serif;
         font-size: 17px;
         font-weight: bold;
@@ -1758,38 +1767,33 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        width: 300px;
+        width: 95%;
         border: black solid 1px;
         border-radius: 5px;
         margin-bottom: 20px;
-        padding-bottom: 10px;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 280px;
+        width: 90%;
         height: 50px;
-        border-bottom: black solid 1px;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme a {
         text-decoration: none;
-        color: black;
+        color: dodgerblue;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme a .recently-added-theme {
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 200px;
-        height: 50px;
         font-family: 'Noto Sans', sans-serif;
         font-weight: bold;
         font-size: 15px;
-        color: black;
-        margin-left: 10px;
+        color: dodgerblue;
     }
 
     .forums-gs-and-recently-added .recently-themes .recently-added-theme-and-quantity-message-this-theme a .recently-added-theme:hover {
@@ -1800,7 +1804,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50px;
         height: 50px;
         font-family: 'Noto Sans', sans-serif;
         font-weight: bold;

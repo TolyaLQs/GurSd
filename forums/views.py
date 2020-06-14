@@ -30,10 +30,10 @@ def forum(request, forum=None):
             return render(request, 'forums/create-new-theme.html', context)
 
 
-def tema(request, categor=None, forum=None):
+def tema(request, forum=None):
     if request.method == 'GET':
-        if categor and forum:
-            forums_tema = ForumsTema.objects.filter(razdel=categor, id=forum).order_by('date_create')
+        if forum:
+            forums_tema = ForumsTema.objects.filter(id=forum).order_by('date_create')
             comment = ForumsComment.objects.filter(forums=forum)
 
             context = {
@@ -53,7 +53,7 @@ def tema(request, categor=None, forum=None):
                 for comm in comment:
                     comm.id
                     i = i + 1
-                return HttpResponseRedirect(f'/forums/forum/{categor}/{forum}/#id_comm{i}')
+                return HttpResponseRedirect(f'/forums/forum/{forum}/#id_comm{i}')
                 # if categor & forum:
                 #     forums_tema = ForumsTema.objects.filter(razdel=categor, name=forum).order_by('date_create').first()
                 #     comment = ForumsComment.objects.filter(forums=forum)
@@ -83,7 +83,7 @@ def tema(request, categor=None, forum=None):
                         return render(request, 'forums/themes-post.html', context)
 
     else:
-        if categor and forum:
+        if forum:
             forums_tema = ForumsTema.objects.filter(razdel=categor, id=forum).order_by('date_create')
             comment = ForumsComment.objects.filter(forums=forum)
 

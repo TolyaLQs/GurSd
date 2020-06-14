@@ -12,7 +12,7 @@
                 <div class="title-content-date-time-nameAuthor-post">
                     <div class="title-content-post">
                         <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
-           href="{% url 'forums:categor_forum' temas.razdel.id temas.id %}"><span class="posts-title">
+           href="{% url 'forums:categor_forum' temas.id %}"><span class="posts-title">
                     {{ temas.name }}
                 </span></a>
                         <span class="posts-content">

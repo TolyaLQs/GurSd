@@ -14,6 +14,14 @@
         background-image: url("/static/img/fon12.jpg");
     }
 
+    .pop_up_window_forum_320px{
+        display: none;
+    }
+
+    .forum_menu_svg_320px{
+        display: none;
+    }
+
     .block-site-menu {
         display: flex;
         justify-content: center;
@@ -817,7 +825,7 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        width: 700px;
+        width: 100%;
         margin-bottom: 10px;
     }
 

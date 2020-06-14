@@ -66,7 +66,7 @@
     {% endfor %}
 <div class="comments-left-by-users">
     {% for com in comment %}
-        <div class="users-avatar-name-comment">
+        <div class="users-avatar-name-comment" id="id_comm{{ com.id }}">
             <div class="users-avatar"><img src="{{ com.avatar.url }}"></div>
             <div class="users-name-comment">
                 <div class="users-name">
@@ -148,8 +148,8 @@
                             c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
                             L581.209,223.007z"/>
                     </svg>
-                    <input type="file" name="avatar" accept="image/*"
-                           id="id_avatar" class="news-input-photo"
+                    <input type="file" name="photo" accept="image/*"
+                           id="id_photo" class="news-input-photo"
                            onchange="showFileName()"/>
                     <input class="news-text_field_comment" title="Напишите комментарий" type="text"
                            placeholder="Напишите комментарий" name="text" id="id_text">

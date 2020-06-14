@@ -130,16 +130,23 @@ def game(request, name=None):
             add_comment = GameCommentForm(request.POST, request.FILES)
             if add_comment.is_valid():
                 add_comment.save()
-                if name:
-                    print(name)
-                    games = Game.objects.filter(name=name)
-                    comment = GameComment.objects.filter(game_name=name)
-                    context = {
-                        'comment': comment,
-                        'games': games,
-                        'name': name,
-                    }
-                    return render(request, 'mainapp/game.html', context)
+                comment = GameComment.objects.filter(game_name=name)
+                i=0
+                for comm in comment:
+                    comm.id
+                    i = i+1
+                    print(i)
+                return HttpResponseRedirect(f'/game/{name}/#id_comm{i}')
+                # if name:
+                #     print(name)
+                #     games = Game.objects.filter(name=name)
+                #     comment = GameComment.objects.filter(game_name=name)
+                #     context = {
+                #         'comment': comment,
+                #         'games': games,
+                #         'name': name,
+                #     }
+                #     return render(request, 'mainapp/game.html', context)
 
         if 'complaint_quantity' in request.POST and request.POST['complaint_quantity']:
             id = request.POST['comment']

@@ -6,28 +6,32 @@
     </div>
 
     <div class="all-posts-on-this-topic">
-        {% for temas in forums_tema %}
-            <span class="name-theme">{{ temas.razdel.name_game }}</span>
-            <div class="all-posts">
-            <div class="title-content-date-time-nameAuthor-post">
-                <div class="title-content-post">
-                    <a href="themes-post.html"><span class="posts-title">
+        <span class="name-theme">{{ forums_razdel.name_game }}</span>
+        <div class="all-posts">
+            {% for temas in forums_tema %}
+                <div class="title-content-date-time-nameAuthor-post">
+                    <div class="title-content-post">
+                        <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
+           href="{% url 'forums:categor_forum' temas.razdel.id temas.id %}"><span class="posts-title">
                     {{ temas.name }}
                 </span></a>
-                    <span class="posts-content">
+                        <span class="posts-content">
                     {{ temas.text|truncatechars:50 }}
                 </span>
+                    </div>
+                    <div class="date-time-authors-post">
+                        <a href="{% url 'auth:profile' temas.author.id %}">
+                            <span>{{ temas.author.first_name }} {{ temas.author.last_name }}</span>
+                        </a>
+                        <span>{{ temas.date_create|time:'H:i a' }}</span>
+                        <span>{{ temas.date_create|date:'d.m.Y' }}</span>
+                    </div>
                 </div>
-                <div class="date-time-authors-post">
-                    <a href="#"><span>{{ temas.author.first_name }} {{ temas.author.last_name }}</span></a>
-                    <span>{{ temas.date_create|time:'H:i a' }}</span>
-                    <span>{{ temas.date_create|date:'d.m.Y' }}</span>
-                </div>
-            </div>
-        {% empty %}
-            <div>Темы не добавленны</div>
-        {% endfor %}
+            {% empty %}
+                <div>Темы не добавленны</div>
+            {% endfor %}
         </div>
+
     </div>
 
 {% endblock %}

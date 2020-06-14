@@ -6,7 +6,8 @@
         {% for razdels in forums_razdel %}
         <div class="themes-forum">
             <div class="named-themes-quantity-themes-asks">
-                <a href="create-new-theme.html"><span>{{ razdels.name_game }}</span></a>
+                <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
+           href="{% url 'forums:forum' razdels.id %}"><span>{{ razdels.name_game }}</span></a>
                 <div class="quantity-themes-asks">
                     <span>Тем: {{ razdels.quantity_themes }}</span>
                     <span>Ответов: 999 </span>
@@ -19,16 +20,19 @@
     </div>
     <div class="recently-added-themes">
         <span class="recently-themes-title">Недавние темы</span>
-        {% for temas in forums_tema %}
         <div class="recently-themes">
+            {% for temas in forums_tema %}
+
             <div class="recently-added-theme-and-quantity-message-this-theme">
-                <a href="themes-post.html"><span class="recently-added-theme">{{ temas.name }}</span></a>
+                <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
+           href="{% url 'forums:categor_forum' temas.razdel.id temas.id %}"><span class="recently-added-theme">{{ temas.name }}</span></a>
                 <span class="quantity-message-this-theme" title="Количество сообщений">999</span>
             </div>
-        </div>
+
             {% empty %}
             <div class="themes-not-added">Темы не добавленны</div>
         {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

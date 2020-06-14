@@ -79,7 +79,7 @@
         <div class="all_comments">
             {% for com in comment %}
                 {% if com.complaint_quantity <= 2 and com.moder_state == 0 or com.moder_state == 1 %}
-                    <div class="comments">
+                    <div class="comments" id="id_comm{{ com.id }}">
                         <div class="author_comments">
                             <div class="author_photo"><img src="/media/{{ com.author.avatar }}"></div>
                             <div class="author_name">{{ com.author.first_name }} {{ com.author.last_name }}</div>

@@ -6,5 +6,5 @@ app_name = 'forums'  # ОБЯЗАТЕЛЬНО!!!
 urlpatterns = [
     re_path('forum/$', forums.forums, name='forums'),
     re_path('forums/(?P<forum>.*\s*)/$', forums.forum, name='forum'),
-    re_path('forum/(?P<categor>.*\s*)/(?P<forum>.+\s*)/$', forums.tema, name='categor_forum'),
+    re_path('forum/(?P<forum>.+\s*)/$', forums.tema, name='categor_forum'),
 ]

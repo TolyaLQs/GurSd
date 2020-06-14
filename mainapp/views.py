@@ -137,6 +137,7 @@ def game(request, name=None):
                     i = i+1
                     print(i)
                 return HttpResponseRedirect(f'/game/{name}/#id_comm{i}')
+                # йцу
                 # if name:
                 #     print(name)
                 #     games = Game.objects.filter(name=name)

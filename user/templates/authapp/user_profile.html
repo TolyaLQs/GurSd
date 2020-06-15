@@ -4,12 +4,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="user_site_prifile">
+<div class="user_site_profile">
     {% for prof in profile %}
     <div class="photo_name_user1">
         <div class="user_photo">
             <img src="/media/{{prof.avatar}}">
-            <div class="user_photo_settings" style="display: flex">
+            <div class="user_photo_settings" style="display: none">
                 <div class="user_photo_settings_change">Изменить</div>
                 <div class="user_photo_settings_delete">Удалить</div>
             </div>

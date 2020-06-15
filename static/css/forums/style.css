@@ -489,7 +489,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 220px;
         height: 50px;
         margin-left: 20px;
     }
@@ -503,6 +502,7 @@
         font-weight: bold;
         font-size: 13px;
         color: black;
+        margin-right: 20px;
     }
 
     .all-posts-on-this-topic .all-posts .title-content-date-time-nameAuthor-post .date-time-authors-post a span:hover {
@@ -558,12 +558,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 290px;
         height: 30px;
     }
 
     .content-written-by-the-author .post-written-by-the-author .authors-name-date-time a {
         text-decoration: none;
+    }
+
+    .content-written-by-the-author .post-written-by-the-author .authors-name-date-time .authors-name {
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        color: black;
     }
 
     .content-written-by-the-author .post-written-by-the-author .authors-name-date-time .authors-name:hover {
@@ -573,9 +579,9 @@
 
     .content-written-by-the-author .post-written-by-the-author .authors-name-date-time span {
         font-family: 'Noto Sans', sans-serif;
-        font-weight: bold;
         font-size: 15px;
         color: black;
+        margin-right: 10px;
     }
 
     .content-written-by-the-author .post-written-by-the-author .authors-name-date-time form {

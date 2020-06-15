@@ -12,10 +12,10 @@
             </span>
             </div>
             <div class="authors-name-date-time">
-                <a href="{% url 'auth:profile' tema.author.id %}"><span
-                        class="authors-name">{{ tema.author.first_name }} {{ tema.author.last_name }}</span></a>
-                <span>{{ temas.date_create|time:'H:i a' }}</span>
-                <span>{{ temas.date_create|date:'d.m.Y' }}</span>
+                <a href="{% url 'auth:profile' tema.author.id %}">
+                    <span class="authors-name">{{ tema.author.first_name }} {{ tema.author.last_name }}</span></a>
+                <span>{{ tema.date_create|time:'H:i a' }}</span>
+                <span>{{ tema.date_create|date:'d.m.Y' }}</span>
                 {% if tema.tema_moder_state == 0 and user.is_authenticated %}
                     {% if tema.tema_complaint_quantity == 0 %}
                         <form method="post">

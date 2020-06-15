@@ -12,7 +12,7 @@ body{
     background-image: url('/static/img/fon12.jpg');
 }
 
-.user_site_prifile{
+.user_site_profile{
     display: flex;
     justify-content: center;
     align-items: center;

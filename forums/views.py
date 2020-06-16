@@ -51,9 +51,8 @@ def tema(request, forum=None):
                 comment = ForumsComment.objects.filter(forums=forum)
                 i = 0
                 for comm in comment:
-                    comm.id
-                    i = i + 1
-                return HttpResponseRedirect(f'/forums/forum/{forum}/#id_comm{i}')
+                     i = comm.id
+                return HttpResponseRedirect(f'/forums/foruma/{forum}/#id_comm{i}')
                 # if categor & forum:
                 #     forums_tema = ForumsTema.objects.filter(razdel=categor, name=forum).order_by('date_create').first()
                 #     comment = ForumsComment.objects.filter(forums=forum)
@@ -93,3 +92,15 @@ def tema(request, forum=None):
                     'forum': forum,
                 }
                 return render(request, 'forums/themes-post.html', context)
+    else:
+        if forum:
+            forums_tema = ForumsTema.objects.filter(id=forum).order_by('date_create')
+            comment = ForumsComment.objects.filter(forums=forum)
+
+            context = {
+                'comment': comment,
+                'forums_tema': forums_tema,
+                'forum': forum,
+            }
+            return render(request, 'forums/themes-post.html', context)
+

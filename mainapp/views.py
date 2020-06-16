@@ -133,8 +133,7 @@ def game(request, name=None):
                 comment = GameComment.objects.filter(game_name=name)
                 i=0
                 for comm in comment:
-                    comm.id
-                    i = i+1
+                    i = comm.id
                     print(i)
                 return HttpResponseRedirect(f'/game/{name}/#id_comm{i}')
                 # йцу

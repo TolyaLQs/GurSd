@@ -41,7 +41,7 @@ class ForumsTema(models.Model):
 class ForumsComment(models.Model):
     forums = models.ForeignKey(ForumsTema, verbose_name='Название темы', on_delete=models.CASCADE)
     author = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
-    avatar = models.ImageField(verbose_name='картинка', upload_to='forumCommentPhoto')
+    avatar = models.ImageField(verbose_name='картинка', blank=True, upload_to='forumCommentPhoto')
     text = models.TextField(verbose_name='Текст', max_length=2048)
     date_create = models.DateTimeField(verbose_name='Добавлена', auto_now_add=True)
     com_moder_state = models.BooleanField(verbose_name='Проверил', blank=True, default=False)

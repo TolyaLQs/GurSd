@@ -63,33 +63,33 @@ def tema(request, forum=None):
                 #     }
                 #     return render(request, 'forums/themes-post.html', context)
 
-        if 'tema_complaint_quantity' in request.POST and request.POST['tema_complaint_quantity']:
-            id = request.POST['comment']
-            complaint_quanti = ForumsComment.objects.filter(id=id).first()
-            add_complaint = ComplaintCommentForm(request.POST, request.FILES, instance=complaint_quanti)
-            if add_complaint.is_valid():
-                complax = ComplaintGCForm(request.POST, request.FILES)
-                if complax.is_valid():
-                    complax.save()
-                    add_complaint.save()
-                    if categor and forum:
-                        forums_tema = ForumsTema.objects.filter(razdel=categor, name=forum).order_by(
-                            'date_create').first()
-                        comment = ForumsComment.objects.filter(forums=forum)
-                        context = {
-                            'comment': comment,
-                            'forums_tema': forums_tema,
-                        }
-                        return render(request, 'forums/themes-post.html', context)
+        # if 'tema_complaint_quantity' in request.POST and request.POST['tema_complaint_quantity']:
+        #
+        #     complaint_quanti = ForumsComment.objects.filter(id=id).first()
+        #     add_complaint = ComplaintCommentForm(request.POST, request.FILES, instance=complaint_quanti)
+        #     if add_complaint.is_valid():
+        #         complax = ComplaintGCForm(request.POST, request.FILES)
+        #         if complax.is_valid():
+        #             complax.save()
+        #             add_complaint.save()
+        #             if forum:
+        #                 forums_tema = ForumsTema.objects.filter(name=forum).order_by(
+        #                     'date_create').first()
+        #                 comment = ForumsComment.objects.filter(forums=forum)
+        #                 context = {
+        #                     'comment': comment,
+        #                     'forums_tema': forums_tema,
+        #                 }
+        #                 return render(request, 'forums/themes-post.html', context)
 
-    else:
-        if forum:
-            forums_tema = ForumsTema.objects.filter(razdel=categor, id=forum).order_by('date_create')
-            comment = ForumsComment.objects.filter(forums=forum)
+        else:
+            if forum:
+                forums_tema = ForumsTema.objects.filter(id=forum).order_by('date_create')
+                comment = ForumsComment.objects.filter(forums=forum)
 
-            context = {
-                'comment': comment,
-                'forums_tema': forums_tema,
-                'forum': forum,
-            }
-            return render(request, 'forums/themes-post.html', context)
+                context = {
+                    'comment': comment,
+                    'forums_tema': forums_tema,
+                    'forum': forum,
+                }
+                return render(request, 'forums/themes-post.html', context)

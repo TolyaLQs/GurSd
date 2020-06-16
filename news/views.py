@@ -54,6 +54,7 @@ def new(request, n=None):
                     comm.id
                     i = i + 1
                 return HttpResponseRedirect(f'/news/new/{n}/#id_comm{i}')
+                # йцу
                 # if n:
                 #     new = New.objects.filter(id=n)
                 #     comment = NewComment.objects.filter(new_name=n)

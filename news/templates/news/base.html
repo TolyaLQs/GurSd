@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
+<link rel="SHORTCUT ICON" href="/static/img/gs.svg" type="image/x-icon">
 <body>
 <div class="block-site-menu">
     <div class="site-menu">
@@ -25,7 +26,9 @@
 
         <div class="links-to-sites">
             <a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"
-               href="{% url 'index' %}"><span>GSGames</span></a>
+               href="{% url 'index' %}">
+                <span>GSGames</span>
+            </a>
             <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
                href="{% url 'forums:forums' %}"><span>GSForum</span></a>
         </div>
@@ -84,7 +87,7 @@
     </div>
 </div>
 
-<div class="pop_up_window_forum_320px">
+<div class="pop_up_window_news_320px">
 
     <div class="menu_logotype_quit_forum">
         <svg fill="white" width="25" height="25" viewBox="0 0 612.043 612.043">
@@ -112,9 +115,19 @@
 
     <div class="menus_data_forum">
         <a class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"
-           href="{% url 'index' %}"><span>GSGames</span></a>
+           href="{% url 'index' %}">
+            <svg fill="black" width="70" height="70" viewBox="0 0 24 24">
+                <path d="M11,7A2,2 0 0,0 9,9V15A2,2 0 0,0 11,17H13A2,2 0 0,0 15,15V11H13V15H11V9H15V7H11M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3Z"/>
+            </svg>
+            <span>GSGames</span>
+        </a>
         <a class="{% if request.resolver_match.url_name == 'forums' %}active{% endif %}"
-           href="{% url 'forums:forums' %}"><span>GSForum</span></a>
+           href="{% url 'forums:forums' %}">
+            <svg width="70" height="70" viewBox="0 0 24 24">
+                <path d="M9,7V17H11V13H14V11H11V9H15V7H9M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3Z"></path>
+            </svg>
+            <span>GSForum</span>
+        </a>
     </div>
 
     <div class="news-login-logout_forum_320px">

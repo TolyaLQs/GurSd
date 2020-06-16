@@ -14,7 +14,7 @@
         background-image: url("/static/img/fon12.jpg");
     }
 
-    .pop_up_window_forum_320px{
+    .pop_up_window_news_320px{
         display: none;
     }
 
@@ -140,6 +140,14 @@
         align-items: center;
         width: 40px;
         height: 40px;
+    }
+
+    .content_news{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
     }
 
     .news-feed {
@@ -455,14 +463,20 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 150px;
-        margin: 20px 0 20px 20px;
+        margin: 40px 0 20px 20px;
     }
 
     .news-site-comments .news-commentator .commentators-photo {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .news-site-comments .news-commentator .commentators-photo img{
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -473,6 +487,7 @@
         justify-content: center;
         align-items: center;
         height: 50px;
+        margin-right: 10px;
     }
 
     .news-site-comments .news-commentator .commentators-name span {
@@ -481,13 +496,31 @@
         align-items: center;
         font-family: 'Noto Sans', sans-serif;
         letter-spacing: 1px;
+        font-weight: bold;
         font-size: 15px;
         color: black;
     }
 
+    .news-site-comments .date-and-time-sending-comment {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 90%;
+    }
+
+    .news-site-comments .date-and-time-sending-comment span {
+        font-family: 'Noto Sans', sans-serif;
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 15px;
+        color: black;
+        margin: 0 5px 0 30px;
+    }
+
+
     .news-site-comments .news-comment-user {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         width: 680px;
         margin: 0 0 20px 75px;
@@ -594,7 +627,7 @@
         background-image: url("/static/img/fon12.jpg");
     }
 
-    .pop_up_window_forum_320px{
+    .pop_up_window_news_320px{
         display: none;
     }
 
@@ -1205,7 +1238,7 @@
         box-sizing: border-box;
     }
 
-    .pop_up_window_forum_320px{
+    .pop_up_window_news_320px{
         display: none;
         justify-content: start;
         align-items: center;
@@ -1241,7 +1274,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 90%;
+        width: 80%;
         background-color: white;
         margin: 10px 0;
         border-radius: 5px;
@@ -1257,7 +1290,7 @@
         margin: 10px 0;
     }
 
-    .photo-and-username_forum_320px .users-photo_forum_320px img{
+    .pop_up_window_news_320px .users-photo_forum_320px img{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1266,7 +1299,7 @@
         border-radius: 50%;
     }
 
-    .pop_up_window_forum_320px .user_profile_forum_320px{
+    .pop_up_window_news_320px .user_profile_forum_320px{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1274,55 +1307,60 @@
         text-decoration: none;
     }
 
-    .pop_up_window_forum_320px .user_profile_forum_320px .photo-and-username_forum_320px .users-name_forum_320px span{
+    .pop_up_window_news_320px .user_profile_forum_320px .photo-and-username_forum_320px .users-name_forum_320px span{
         font-family: 'Noto Sans', sans-serif;
-        font-size: 18px;
+        font-size: 23px;
         font-weight: bold;
-        color: dodgerblue;
+        color: black;
     }
 
-    .pop_up_window_forum_320px .menus_data_forum{
+    .pop_up_window_news_320px .menus_data_forum{
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 90%;
+        width: 80%;
         background-color: white;
         margin: 10px 0;
         border-radius: 5px;
         padding: 10px 0;
     }
 
-    .pop_up_window_forum_320px .menus_data_forum a{
+    .pop_up_window_news_320px .menus_data_forum a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         text-decoration: none;
         margin: 10px 0;
     }
 
-    .pop_up_window_forum_320px .menus_data_forum a span{
+    .pop_up_window_news_320px .menus_data_forum a span{
         font-family: 'Noto Sans', sans-serif;
-        font-size: 16px;
+        font-size: 20px;
         font-weight: bold;
-        color: dodgerblue;
+        color: black;
+        margin-left: 10px;
     }
 
-    .pop_up_window_forum_320px .news-login-logout_forum_320px{
+    .pop_up_window_news_320px .news-login-logout_forum_320px{
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 90%;
+        width: 80%;
         background-color: white;
         border-radius: 5px;
     }
 
-    .pop_up_window_forum_320px .news-login-logout_forum_320px a{
+    .pop_up_window_news_320px .news-login-logout_forum_320px a{
         text-decoration: none;
         margin: 10px 0;
     }
 
-    .pop_up_window_forum_320px .news-login-logout_forum_320px a span{
+    .pop_up_window_news_320px .news-login-logout_forum_320px a span{
         font-family: 'Noto Sans', sans-serif;
         font-size: 15px;
-        color: dodgerblue;
+        color: black;
     }
 
     .content_news{

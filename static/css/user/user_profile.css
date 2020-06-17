@@ -83,6 +83,8 @@ body{
     font-size: 15px;
     cursor: pointer;
     color: lightgray;
+    background: none;
+    border: none;
 }
 
 .user_photo_settings_change:hover{

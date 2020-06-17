@@ -35,7 +35,6 @@ def tema(request, forum=None):
         if forum:
             forums_tema = ForumsTema.objects.filter(id=forum).order_by('date_create')
             comment = ForumsComment.objects.filter(forums=forum)
-
             context = {
                 'comment': comment,
                 'forums_tema': forums_tema,

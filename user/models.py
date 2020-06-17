@@ -35,13 +35,13 @@ class User(AbstractUser):
     avatar = models.ImageField(verbose_name='Аватарка', blank=True, default='users/ava.png', upload_to='users')
     age = models.SmallIntegerField(verbose_name='Возраст', blank=True, default=0)
     sex = models.TextField(verbose_name='Пол', blank=True)
-    nickname = models.TextField(verbose_name='Никнейм', max_length=128)
-    telephoneModel = models.TextField(verbose_name='Модель телефона', max_length=50)
-    aboutMyself = models.TextField(verbose_name='О себе', max_length=250)
-    contacts = models.TextField(verbose_name='Контакты', max_length=150)
-    networksAndSites = models.TextField(verbose_name='Соцсети и сайты', max_length=100)
-    favorites = models.TextField(verbose_name='Избранное', max_length=100)
-    moderator = models.BooleanField(verbose_name='Модератор', default=False)
+    nickname = models.TextField(verbose_name='Никнейм', blank=True, max_length=128)
+    telephoneModel = models.TextField(verbose_name='Модель телефона', blank=True, max_length=50)
+    aboutMyself = models.TextField(verbose_name='О себе', blank=True, max_length=250)
+    contacts = models.TextField(verbose_name='Контакты', blank=True, max_length=150)
+    networksAndSites = models.TextField(verbose_name='Соцсети и сайты', blank=True, max_length=100)
+    favorites = models.TextField(verbose_name='Избранное', blank=True, max_length=100)
+    moderator = models.BooleanField(verbose_name='Модератор', blank=True, default=False)
 
 
 class UserFriend(models.Model):

@@ -8,11 +8,16 @@
     {% for prof in profile %}
     <div class="photo_name_user1">
         <div class="user_photo">
-            <img src="/media/{{prof.avatar}}">
-            <div class="user_photo_settings" style="display: flex">
+            <img src="{{prof.avatar.url}}">
+            {% if user.id == prof.id %}
+            <div class="user_photo_settings" style="display: none">
                 <div class="user_photo_settings_change">Изменить</div>
-                <div class="user_photo_settings_delete">Удалить</div>
+                <form method="post">
+                    <input type="hidden" name="avatar" accept="image/*" class="form-control" id="id_avatar" value="user/ava.png">
+                    <button type="submit" class="user_photo_settings_delete">Удалить</button>
+                    </form>
             </div>
+            {% endif %}
         </div>
         <div class="user_name_other">
             <div class="name_settings">
@@ -28,6 +33,10 @@
                 </a>
             </div>
             <div class="subscribe_edit_message">
+                {% if user.id == prof.id %}
+
+
+                    {% else %}
                 <form class="form" action="" method="post">
                     <div class="subscribe">
                         <div class="subscribe_mark_checked">
@@ -56,6 +65,7 @@
                         </div>
                     </div>
                 </form>
+                {% endif %}
                 <a href="message.html">
                     <div class="send_message">
                         <span>Отправить сообщение</span>
@@ -65,6 +75,7 @@
         </div>
     </div>
     {% endfor %}
+<div>{{ r.as_p }}</div>
     <div class="user_menu_border"></div>
     <div class="friends_game_user">
         <div class="game_user">
@@ -77,25 +88,35 @@
     <div class="user_all_game">
         {% for prof_game in profile_game %}
         <a class="{% if request.resolver_match.url_name == 'game' %}active{% endif %}"
-           href="{% url 'game' prof_game.game.name %}">
+           href="{% url 'game' prof_game.game_user.name %}">
             <div class="game_img_name">
-                <div class="game_img"><img src="/media/{{prof_game.game.photo}}"></div>
-                <div class="game_name">{{prof_game.game}}</div>
+
+                <div class="game_img"><img src="{{prof_game.game_user.photo.url}}"></div>
+                <div class="game_name">{{prof_game.game_user.name}}</div>
             </div>
         </a>
+            {% empty %}
+            <div>no game</div>
         {% endfor %}
     </div>
 
     <div class="user_friends">
         {% for prof_friend in profile_friend %}
-        <a class="{% if request.resolver_match.url_name == 'profil' %}active{% endif %}"
-           href="{% url 'auth:profil' prof_friend.friend.id %}">
-            <div class="friends_photo_name">
-                <div class="friends_photo"><img src="/media/{{prof_friend.friend.avatar}}"></div>
-                <div class="friends_name">{{prof_friend.friend.last_name}} {{prof_friend.friend.first_name}}</div>
-            </div>
-        </a>
+            <a class="{% if request.resolver_match.url_name == 'profile' %}active{% endif %}"
+               href="{% url 'auth:profile' prof_friend.friend_user.id %}">
+                <div class="friends_photo_name">
+                    {% if prof_friend.friend_user.avatar %}
+                    <div class="friends_photo"><img src="{{prof_friend.friend_user.avatar.url}}"></div>
+                    {% endif %}
+                    <div class="friends_name">{{prof_friend.friend_user.last_name}} {{prof_friend.friend_user.first_name}}</div>
+                </div>
+            </a>
+            {% empty %}
+            <div>no friend</div>
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+{% block js %}
+    <script src="/static/js/user/script.js"></script>
 {% endblock %}

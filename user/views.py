@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
-from user.forms import MyUserCreationForm, MyUserChangeForm
+from user.forms import MyUserCreationForm, MyUserChangeForm, MyUserChangeAvatarForm
 from user.models import User, UserFriend
 from mainapp.models import UserGame
 from django.http import JsonResponse
@@ -24,12 +24,12 @@ def user_login(request):
             if user is not None:
                 print('пользователь найден: ', user)
                 login(request, user)
-                message = f'Пользаватель с емайлом {email} залогинелся'
+                message = f'Пользователь с емайлом {email} залогинелся'
                 send_mail(
                     'GurSdGames',
                     message,
                     'testyatesttest@yandex.ru',
-                    [u'lotarev1999@inbox.ru'],
+                    [u'sdtolya@gmail.com'],
                 )
                 return HttpResponseRedirect(reverse('index'))
         elif 'fname' in request.POST and request.POST['fname']:
@@ -56,12 +56,12 @@ def user_register(request):
         if register_form.is_valid():
             register_form.save()
             email = request.POST['email']
-            message = f'Пользаватель с емайлом {email} зарегестрировался'
+            message = f'Пользователь с емайлом {email} зарегистрировался'
             send_mail(
                 'GurSdGames',
                 message,
                 'testyatesttest@yandex.ru',
-                [u'lotarev1999@inbox.ru'],
+                [u'sdtolya@gmail.com'],
             )
             password = request.POST['password1']
             user = authenticate(email=email, password=password)
@@ -102,28 +102,59 @@ def user_profile(request, id=None):
     game_quantity = 0
     friend_quantity = 0
     if request.method == 'GET':
+        print(id)
         if id:
             profile = User.objects.filter(id=id)
             profile_friend = UserFriend.objects.filter(user_friend=id)
+            print(profile_friend)
             profile_game = UserGame.objects.filter(user_game=id)
             for i in profile_game:
                 game_quantity = game_quantity+1
-
             for u in profile_friend:
                 friend_quantity = friend_quantity+1
-
+            r = MyUserChangeAvatarForm(request.POST, request.FILES, instance=request.user)
             context = {
                 'profile': profile,
                 'profile_friend': profile_friend,
                 'profile_game': profile_game,
                 'game_quantity': game_quantity,
                 'friend_quantity': friend_quantity,
+                'r': r,
             }
-
             return render(request, 'authapp/user_profile.html', context)
 
-    return render(request, 'authapp/user_profile.html')
-
+    if request.method == "POST":
+        print('1')
+        if 'avatar' in request.POST and request.POST['avatar']:
+            print('2')
+            edit_for = MyUserChangeAvatarForm()
+            print('3')
+            if edit_for.is_valid():
+                print('4')
+                edit_for.save()
+                print('5')
+                return HttpResponseRedirect(f'/auth/profile/{id}')
+    # else:
+    #     print('6')
+    #     if id:
+    #         print('7')
+    #         profile = User.objects.filter(id=id)
+    #         profile_friend = UserFriend.objects.filter(user_friend=id)
+    #         print(profile_friend)
+    #         profile_game = UserGame.objects.filter(user_game=id)
+    #         for i in profile_game:
+    #             game_quantity = game_quantity+1
+    #         for u in profile_friend:
+    #             print(u.friend_user.first_name)
+    #             friend_quantity = friend_quantity+1
+    #         context = {
+    #             'profile': profile,
+    #             'profile_friend': profile_friend,
+    #             'profile_game': profile_game,
+    #             'game_quantity': game_quantity,
+    #             'friend_quantity': friend_quantity,
+    #         }
+    #         return render(request, 'authapp/user_profile.html', context)
 
 def user_message(request):
     pass

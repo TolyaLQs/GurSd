@@ -9,6 +9,6 @@ urlpatterns = [
     re_path('register/$', user.user_register, name='register'),
     re_path('edit/$', user.user_edit, name='edit'),
     re_path('profile/(?P<id>.*\s*)/$', user.user_profile, name='profile'),
-    re_path('message/$', user.user_message, name='message'),
-    re_path('message/(?P<id>.*\s*)/$', user.user_message_id, name='message_id'),
+    re_path('messages/(?P<id>.*\s*)/$', user.user_message_id, name='message_id'),
+    re_path('message/(?P<id>.*\s*)/(?P<id2>.*\s*)$', user.user_message, name='message'),
 ]

@@ -14,8 +14,8 @@
             <div class="authors-name-date-time">
                 <a href="{% url 'auth:profile' tema.author.id %}"><span
                         class="authors-name">{{ tema.author.first_name }} {{ tema.author.last_name }}</span></a>
-                <span>{{ temas.date_create|time:'H:i a' }}</span>
-                <span>{{ temas.date_create|date:'d.m.Y' }}</span>
+                <span>{{ tema.date_create|time:'H:i a' }}</span>
+                <span>{{ tema.date_create|date:'d.m.Y' }}</span>
                 {% if tema.tema_moder_state == 0 and user.is_authenticated %}
                     {% if tema.tema_complaint_quantity == 0 %}
                         <form method="post">
@@ -67,7 +67,9 @@
 <div class="comments-left-by-users">
     {% for com in comment %}
         <div class="users-avatar-name-comment" id="id_comm{{ com.id }}">
+        {% if com.avatar %}
             <div class="users-avatar"><img src="{{ com.avatar.url }}"></div>
+        {% endif %}
             <div class="users-name-comment">
                 <div class="users-name">
                     <a href="{% url 'auth:profile' com.author.id %}">
@@ -75,8 +77,8 @@
                             {{ com.author.last_name }} {{ com.author.first_name }}
                         </span>
                     </a>
-                    <span>{{ n.date|time:'H:i a' }}</span>
-                    <span>{{ n.date|date:'d.m.Y' }}</span>
+                    <span>{{ com.date|time:'H:i a' }}</span>
+                    <span>{{ com.date|date:'d.m.Y' }}</span>
                     {% if com.com_moder_state == 0 and user.is_authenticated %}
                         {% if com.com_complaint_quantity == 0 %}
                             <form method="post">
@@ -106,7 +108,7 @@
                                     </svg>
                                 </button>
                             </form>
-                        {% elif tema.com_complaint_quantity == 2 %}
+                        {% elif com.com_complaint_quantity == 2 %}
                             <form method="post">
                                 <input type="hidden" name="user_complaint" id="id_user_complaint"
                                        value="{{ user.id }}">
@@ -136,7 +138,6 @@
         <div class="news-comment-input">
             {% if user.is_authenticated %}
             <form class="news-form_comment" method="post">
-
                 <label class="news-input_comment_label" for="id_avatar">
                     <svg fill="black" width="20px" height="20px" viewBox="0 0 612.675 612.675">
                         <title>Выберите файл</title>
@@ -148,7 +149,7 @@
                             c-53.736,68.323-49.012,167.091,14.5,229.88c63.512,62.79,163.35,67.492,232.46,14.325l1.072,1.072l326.942-323.31
                             L581.209,223.007z"/>
                     </svg>
-                    <input type="file" name="photo" accept="image/*"
+                    <input type="file" name="avatar" accept="image/*"
                            id="id_avatar" class="news-input-photo"
                            onchange="showFileName()"/>
                     <input class="news-text_field_comment" title="Напишите комментарий" type="text"
